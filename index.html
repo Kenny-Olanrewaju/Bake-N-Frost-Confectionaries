@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  BAKE N FROST CONFECTIONARIES — "Freshly made for you"
+  Files:  index.html (this file) · styles.css · script.js
+
+  Seven "pages" live in this file as <section class="page"> blocks. script.js
+  has a small hash router (#/home, #/menu, #/catering ...) that shows one at a
+  time, updates the <title>, moves keyboard focus and returns to the top.
+
+  PAGES : Home · About · Menu · Catering · Wholesale · Academy · Contact
+  EDIT  : Search for "PLACEHOLDER" to find phone numbers, prices, social URLs,
+          map address (here) and the form endpoint (in script.js).
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===== SEO ===== -->
+  <title>Bake N Frost Confectionaries</title>
+  <meta name="description" content="Bake N Frost Confectionaries — freshly made custom cakes, artisan bread and pastries, full-service catering, wholesale bread supply and professional baking classes.">
+  <meta name="keywords" content="custom cakes, bakery, bread, pastries, catering, wholesale bread supplier, baking classes, baking academy, birthday cakes, wedding cakes">
+  <meta name="author" content="Bake N Frost Confectionaries">
+  <meta name="theme-color" content="#1E0F26">
+  <link rel="canonical" href="https://www.bakenfrost.onrender.com/"><!-- PLACEHOLDER domain -->
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bake N Frost Confectionaries">
+  <meta property="og:description" content="Custom cakes, artisan bread, pastries, catering, wholesale supply and baking training.">
+  <meta property="og:image" content="https://picsum.photos/seed/bnf-og/1200/630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Structured data for search engines (replace placeholder details) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Bake N Frost Confectionaries",
+    "slogan": "Freshly made for you",
+    "description": "Custom cakes, bread, pastries, catering, wholesale supply and baking classes.",
+    "telephone": "+234-800-000-0000",
+    "email": "hello@bakenfrost.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG" },
+    "priceRange": "₦₦",
+    "openingHours": ["Mo-Sa 07:00-19:00", "Su 10:00-16:00"]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- ===== Performance hints ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://picsum.photos">
+  <link rel="preconnect" href="https://fastly.picsum.photos" crossorigin>
+  <link rel="preload" as="image" href="https://i.pinimg.com/736x/21/20/34/212034a4eab9075633f9cbfdcac1543e.jpg" fetchpriority="high">
+
+  <!-- ===== Fonts (only the weights actually used) ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons load without blocking first paint -->
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"></noscript>
+
+  <!-- Adds .js to <html> early so CSS can hide inactive pages only when JS runs -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="sentinel" id="sentinelTop" aria-hidden="true"></div>
+  <div class="sentinel" id="sentinelFab" aria-hidden="true"></div>
+  <!-- Screen-reader announcement area for page changes -->
+  <div class="sr-only" id="route-announcer" aria-live="polite" role="status"></div>
+
+  <!-- ==========================================================================
+       HEADER / NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#/home" class="brand" aria-label="Bake N Frost Confectionaries — home">
+        <!-- Monogram echoing the circular "B" logo -->
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span class="brand-text"><strong>Bake <span class="gold-n">N</span> Frost</strong><small>Confectionaries</small></span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <span class="nav-indicator" id="navIndicator" aria-hidden="true"></span>
+        <a href="#/home" data-route="home">Home</a>
+        <a href="#/about" data-route="about">Our Story</a>
+        <a href="#/menu" data-route="menu">Menu</a>
+        <a href="#/catering" data-route="catering">Catering</a>
+        <a href="#/wholesale" data-route="wholesale">Wholesale</a>
+        <a href="#/academy" data-route="academy">Academy</a>
+        <a href="#/contact" data-route="contact">Contact</a>
+      </div>
+
+      <a href="#/contact/enquiry" class="btn btn-primary nav-cta">Order now</a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Premium mobile navigation panel -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="mobile-menu-accent" aria-hidden="true"></div>
+      <div class="mobile-menu-head">
+        <a href="#/home" class="brand" aria-label="Bake N Frost Confectionaries — home">
+          <span class="brand-logo" aria-hidden="true"></span>
+          <span class="brand-text"><strong>Bake <span class="gold-n">N</span> Frost</strong><small>Confectionaries</small></span>
+        </a>
+        <button class="mobile-close" id="mobileClose" type="button" aria-label="Close menu">
+          <span class="close-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a class="m-link" style="--i:0" href="#/home" data-route="home"><span class="m-label">Home</span></a>
+        <a class="m-link" style="--i:1" href="#/about" data-route="about"><span class="m-label">Our Story</span></a>
+        <a class="m-link" style="--i:2" href="#/menu" data-route="menu"><span class="m-label">Menu</span></a>
+        <a class="m-link" style="--i:3" href="#/catering" data-route="catering"><span class="m-label">Catering</span></a>
+        <a class="m-link" style="--i:4" href="#/wholesale" data-route="wholesale"><span class="m-label">Wholesale</span></a>
+        <a class="m-link" style="--i:5" href="#/academy" data-route="academy"><span class="m-label">Academy</span></a>
+        <a class="m-link" style="--i:6" href="#/contact" data-route="contact"><span class="m-label">Contact</span></a>
+      </nav>
+      <div class="mobile-menu-foot">
+        <a href="#/contact/enquiry" class="btn btn-primary m-cta">Order now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <!-- PLACEHOLDER: replace 2348000000000 with your WhatsApp number (country code, no + or spaces) -->
+        <a class="m-whatsapp" href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> +234 800 000 0000
+        </a>
+        <p class="m-tagline">Freshly made for you</p>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <!--Home Page -->
+    <div class="page" id="page-home" data-title="Bake N Frost Confectionaries | Freshly made for you">
+
+      <!-- Hero: full-bleed background slideshow (edit image URLs in the list below) -->
+      <section class="hero hero-cream" id="hero" aria-label="Welcome">
+        <!--Hero-slideshow-->
+        <div class="hero-bg-slideshow" aria-hidden="true">
+          <div class="hero-bg-slide is-active" data-slide="0" style="--img:url('https://i.pinimg.com/736x/c7/a1/cc/c7a1ccf36c49f18f60973d30f7b500fc.jpg')"></div>
+          <div class="hero-bg-slide" data-slide="1" style="--img:url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1600&h=1200&q=80')"></div>
+          <div class="hero-bg-slide" data-slide="2" style="--img:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&h=1200&q=80')"></div>
+          <div class="hero-bg-slide" data-slide="3" style="--img:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&h=1200&q=80')"></div>
+          <div class="hero-bg-slide" data-slide="4" style="--img:url('https://i.pinimg.com/736x/c4/de/ae/c4deaefd7fb3aabccdc663957f53f6a6.jpg')"></div>
+          <div class="hero-bg-slide" data-slide="5" style="--img:url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1600&h=1200&q=80')"></div>
+        </div>
+        <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <!-- Live status: greeting + open/closed (from our opening hours) + Lagos time. script.js fills it in. -->
+            <div class="hero-status" id="heroStatus">
+              <span class="hero-status-pill"><span class="hero-status-dot" aria-hidden="true"></span><span><span id="heroGreeting">Good day</span> · <span id="heroState">Open<span class="hero-status-more"> for orders</span></span></span></span>
+              <span class="hero-status-time" id="heroTime">Lagos · WAT</span>
+            </div>
+            <h1>Freshly made <em>for you.</em></h1>
+            <p class="lead">Custom celebration cakes, golden loaves and buttery pastries — baked from scratch every morning, delivered with care.</p>
+            <div class="btn-row hero-actions">
+              <a href="#/menu" class="btn btn-primary">Explore the menu <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a href="#/contact/enquiry" class="btn btn-ghost hero-secondary">Order a custom cake</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slideshow navigator (prev / dots / next) -->
+        <div class="hero-slider-ui" id="stage" role="group" aria-label="Background slideshow controls">
+          <button class="hero-nav-btn" id="stagePrev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+          <div class="hero-dots" id="stageDots" role="tablist" aria-label="Slides"></div>
+          <button class="hero-nav-btn" id="stageNext" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section class="section theme-light" aria-labelledby="home-services">
+        <div class="container">
+          <div class="section-head center">
+            <p class="eyebrow">What we do</p>
+            <h2 id="home-services">One kitchen, <em class="gold">many ways</em> to enjoy us</h2>
+            <p>From a single birthday cake to a thousand loaves a week — everything is made by hand with real butter, honest ingredients and a lot of patience.</p>
+          </div>
+          <div class="grid grid-3">
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i></div><h3>Custom Cakes</h3><p>Birthdays, weddings, naming ceremonies and corporate events — designed with you and finished by hand.</p><a class="link-arrow" href="#/menu/cakes">View cakes <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i></div><h3>Bread &amp; Pastries</h3><p>Soft sandwich loaves, crusty sourdough, pies and croissants, baked fresh every single morning.</p><a class="link-arrow" href="#/menu/bread">View the bakery <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div><h3>Catering</h3><p>Full food menus — not just baked goods. Small chops, jollof, grills and dessert tables for any guest list.</p><a class="link-arrow" href="#/catering">Plan your event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div><h3>Wholesale Supply</h3><p>Reliable, early-morning bread and snack deliveries for shops, hotels, schools and eateries.</p><a class="link-arrow" href="#/wholesale">Become a partner <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div><h3>Baking Academy</h3><p>Hands-on classes from first-time baker to business-ready professional, with certificates on completion.</p><a class="link-arrow" href="#/academy">See courses <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-heart" aria-hidden="true"></i></div><h3>Made with Care</h3><p>No shortcuts, no preservatives you can't pronounce. Just proper baking, the way it should be.</p><a class="link-arrow" href="#/about">Our story <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our craft: photo + short story, links to the Our Story page -->
+      <section class="section theme-cream2" aria-labelledby="home-craft">
+        <div class="container craft-grid">
+          <figure class="craft-media">
+            <img src="https://images.unsplash.com/photo-1711672284661-bd70e38f31b2?auto=format&amp;fit=crop&amp;q=80&amp;w=1200&amp;h=1000" srcset="https://images.unsplash.com/photo-1711672284661-bd70e38f31b2?auto=format&amp;fit=crop&amp;q=80&amp;w=640&amp;h=533 640w, https://images.unsplash.com/photo-1711672284661-bd70e38f31b2?auto=format&amp;fit=crop&amp;q=80&amp;w=1200&amp;h=1000 1200w" sizes="(max-width: 860px) 100vw, 560px" alt="A bakery counter with glass display cases full of fresh bread and pastries" loading="lazy" decoding="async" width="1200" height="1000">
+          </figure>
+          <div class="craft-copy">
+            <p class="eyebrow">Our craft</p>
+            <h2 id="home-craft">Freshly made, every <em class="gold">single morning</em></h2>
+            <p>Our bakers arrive before dawn so that when the doors open, the shelves glow with loaves still warm from the oven and pastries layered to order. We mix in small batches, shape by hand, and let time do its work.</p>
+            <ul class="dot-list">
+              <li>Quality flour and real butter, never margarine</li>
+              <li>No preservatives, no artificial flavourings</li>
+              <li>Seasonal menus that follow the harvest</li>
+              <li>Custom cakes welcomed with 3 days' notice</li>
+            </ul>
+            <a href="#/about" class="btn btn-ghost">Read our story <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-band" aria-label="Bakery numbers">
+        <div class="container stats">
+          <div class="stat">
+            <strong><span class="stat-num" data-target="10" data-suffix="+">0</span></strong>
+            <span>Years baking</span>
+          </div>
+          <div class="stat">
+            <strong><span class="stat-num" data-target="5000" data-suffix="+" data-format="comma">0</span></strong>
+            <span>Cakes delivered</span>
+          </div>
+          <div class="stat">
+            <strong><span class="stat-num" data-target="40" data-suffix="+">0</span></strong>
+            <span>Wholesale partners</span>
+          </div>
+          <div class="stat">
+            <strong><span class="stat-num" data-target="300" data-suffix="+">0</span></strong>
+            <span>Academy graduates</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured menu -->
+      <section class="section theme-dark" aria-labelledby="home-featured">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Customer favourites</p>
+            <h2 id="home-featured">Fresh from the <em class="gold">oven</em></h2>
+          </div>
+          <div class="grid grid-3">
+            <article class="card item-card">
+              <div class="item-media"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=640&h=480&q=80" alt="Vanilla bean celebration cake with buttercream" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cakes</span></div>
+              <div class="item-body"><h3>Vanilla Bean Celebration</h3><p>Three layers of light vanilla sponge with silky Swiss meringue buttercream.</p><div class="item-foot"><span class="price"><small>from</small>₦25,000</span><button class="mini-btn" type="button" data-order="Vanilla Bean Celebration Cake">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+            </article>
+            <article class="card item-card">
+              <div class="item-media"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=640&h=480&q=80" alt="Crusty sourdough loaf sliced open" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div>
+              <div class="item-body"><h3>Country Sourdough</h3><p>Slow-fermented for 24 hours: crackling crust, open crumb and a gentle tang.</p><div class="item-foot"><span class="price">₦4,500</span><button class="mini-btn" type="button" data-order="Country Sourdough">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+            </article>
+            <article class="card item-card">
+              <div class="item-media"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=640&h=480&q=80" alt="Butter croissants cooling on a rack" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastries</span></div>
+              <div class="item-body"><h3>All-Butter Croissant</h3><p>Laminated by hand over three days for shatteringly crisp layers.</p><div class="item-foot"><span class="price">₦2,200</span><button class="mini-btn" type="button" data-order="All-Butter Croissant">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+            </article>
+          </div>
+          <p class="center" style="text-align:center;margin-top:3rem"><a href="#/menu" class="btn btn-ghost">See the full menu</a></p>
+        </div>
+      </section>
+
+      <!-- Parallax quote -->
+      <section class="quote-band" aria-label="Our promise">
+        <img class="quote-bg" src="https://i.pinimg.com/1200x/35/56/e9/3556e9d0675c747b24042c1d0bc65c64.jpg" alt="" loading="lazy" decoding="async" width="1400" height="800">
+        <blockquote>
+          <p>“We don't bake to fill a shelf. We bake so the table you gather around feels a little more special.”</p>
+          <cite>— The Bake N Frost kitchen</cite>
+        </blockquote>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="section theme-cream2" aria-labelledby="home-reviews">
+        <div class="container">
+          <div class="section-head center">
+            <p class="eyebrow">Kind words</p>
+            <h2 id="home-reviews">Loved by <em class="gold">our community</em></h2>
+          </div>
+          <div class="carousel" id="testimonials" role="region" aria-roledescription="carousel" aria-label="Customer testimonials">
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="tTrack">
+                <figure class="t-slide" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The cake was even more beautiful than the picture I sent. Every guest asked who made it — and it tasted incredible.”</blockquote><figcaption class="who">Adaeze O.<span>Birthday cake customer</span></figcaption></figure>
+                <figure class="t-slide" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“They catered our company's end-of-year party for 120 people. Food arrived hot, on time, and nothing was left over.”</blockquote><figcaption class="who">Tunde A.<span>Corporate catering client</span></figcaption></figure>
+                <figure class="t-slide" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Our supermarket bread supply has never been this consistent. Deliveries land before we open, every day.”</blockquote><figcaption class="who">Mrs. Okafor<span>Wholesale partner</span></figcaption></figure>
+                <figure class="t-slide" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“I joined the academy knowing nothing. Three months later I'm taking cake orders from my own kitchen.”</blockquote><figcaption class="who">Blessing E.<span>Academy graduate</span></figcaption></figure>
+              </div>
+            </div>
+            <div class="carousel-nav">
+              <button class="round-btn" id="tPrev" type="button" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+              <div class="dots" id="tDots"></div>
+              <button class="round-btn" id="tNext" type="button" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery + lightbox -->
+      <section class="section theme-dark" aria-labelledby="home-gallery">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">The gallery</p>
+            <h2 id="home-gallery">A little <em class="gold">inspiration</em></h2>
+            <p>Tap any photo to view it larger.</p>
+          </div>
+          <div class="gallery" id="gallery">
+            <button class="g-item tall" type="button" data-full="https://i.pinimg.com/1200x/35/69/f7/3569f763ad1322a45fb451dda10e39de.jpg" data-caption="Hand-piped wedding cake"><img src="https://i.pinimg.com/1200x/35/69/f7/3569f763ad1322a45fb451dda10e39de.jpg" alt="Hand-piped wedding cake" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="https://i.pinimg.com/736x/8c/3e/00/8c3e00db08c7fd2c994c6c3ced7b6aeb.jpg" data-caption="Fresh white bread"><img src="https://i.pinimg.com/736x/8c/3e/00/8c3e00db08c7fd2c994c6c3ced7b6aeb.jpg" alt="Fresh white bread" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="https://i.pinimg.com/736x/fa/b3/4a/fab34acd779570955716aeeda49623bc.jpg" data-caption="Donut box"><img src="https://i.pinimg.com/736x/fa/b3/4a/fab34acd779570955716aeeda49623bc.jpg" alt="Donut box" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="https://i.pinimg.com/1200x/bd/5e/fc/bd5efcd4de68d9b1818433c88961398e.jpg" data-caption="Box of decorated cupcakes"><img src="https://i.pinimg.com/1200x/bd/5e/fc/bd5efcd4de68d9b1818433c88961398e.jpg" alt="Box of decorated cupcakes" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="https://i.pinimg.com/1200x/06/5b/0a/065b0a51fdfd25018f9417c75740f2ee.jpg" data-caption="Chocolate drip cake"><img src="https://i.pinimg.com/1200x/06/5b/0a/065b0a51fdfd25018f9417c75740f2ee.jpg" alt="Chocolate drip cake" loading="lazy" decoding="async"></button>
+            <button class="g-item tall" type="button" data-full="https://i.pinimg.com/736x/c1/a9/32/c1a9320edaeac652307ad3ffb6a46096.jpg" data-caption="Catering dessert table"><img src="https://i.pinimg.com/736x/c1/a9/32/c1a9320edaeac652307ad3ffb6a46096.jpg" alt="Catering dessert table" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="https://i.pinimg.com/736x/c2/8f/f9/c28ff944d3aa18049c51dc6f0b07ef64.jpg" data-caption=" Cookie trays"><img src="https://i.pinimg.com/736x/c2/8f/f9/c28ff944d3aa18049c51dc6f0b07ef64.jpg" alt="Morning bakery trays" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="https://i.pinimg.com/1200x/7b/9f/ea/7b9feacb65b38c6c31a34f0a43d22143.jpg" data-caption="Rock buns"><img src="https://i.pinimg.com/1200x/7b/9f/ea/7b9feacb65b38c6c31a34f0a43d22143.jpg" alt="Rock buns" loading="lazy" decoding="async"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section cta theme-dark" aria-labelledby="home-cta">
+        <div class="container">
+          <p class="eyebrow" style="justify-content:center">Let's bake something</p>
+          <h2 id="home-cta">Planning something <em class="gold">sweet?</em></h2>
+          <p>Tell us about your occasion and we'll send a tailored quote within one working day.</p>
+          <div class="btn-row"><a class="btn btn-primary" href="#/contact/enquiry">Start your order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="btn btn-ghost" href="#/catering">View catering</a></div>
+        </div>
+      </section>
+
+      <!-- Visit strip: address, today's hours (live) and directions -->
+      <section class="section visit-strip theme-cream2" aria-labelledby="home-visit">
+        <div class="container">
+          <div class="visit-card">
+            <div class="visit-intro">
+              <p class="eyebrow">Visit us</p>
+              <h2 id="home-visit">Come and say <em class="gold">hello</em></h2>
+            </div>
+            <ul class="visit-facts">
+              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><div><strong>Address</strong><span>12 Sample Street, Ikeja, Lagos</span></div></li><!-- PLACEHOLDER address -->
+              <li><i class="fa-regular fa-clock" aria-hidden="true"></i><div><strong>Today</strong><span id="todayHours">7:00 AM – 7:00 PM</span></div></li>
+              <li><i class="fa-solid fa-phone" aria-hidden="true"></i><div><strong>Call us</strong><a href="tel:+2348000000000">+234 800 000 0000</a></div></li><!-- PLACEHOLDER phone -->
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ikeja,Lagos,Nigeria" target="_blank" rel="noopener noreferrer">Get directions <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i></a>
+              <a class="btn btn-ghost" href="#/contact/visit">See the map</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--Story-page -->
+    <div class="page" id="page-about" data-title="Our Story | Bake N Frost Confectionaries">
+      <section class="page-hero page-hero--split page-hero--about" aria-label="Our story introduction">
+        <div class="ring r1" aria-hidden="true"></div>
+        <div class="ring r2" aria-hidden="true"></div>
+        <div class="container menu-hero-grid about-hero-grid">
+          <div class="menu-hero-copy about-hero-copy">
+            <p class="menu-hero-eyebrow">Our Story</p>
+            <h1 tabindex="-1">Baked with heart, <em>from the start.</em></h1>
+            <p class="menu-hero-lead">A small kitchen, a big love for baking, and a promise that everything we make is freshly made for you — every single morning.</p>
+            <div class="btn-row" style="margin-top:1.5rem">
+              <a href="#growthTimeline" class="btn btn-primary">How we grew <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a href="#/contact/enquiry" class="btn btn-ghost">Get in touch</a>
+            </div>
+          </div>
+          <figure class="menu-hero-media about-hero-media about-hero-logo">
+            <!-- Our Story hero: brand monogram — replace src anytime -->
+            <img
+              src="b-logo2.jpg"
+              alt="Bake N Frost Confectionaries logo"
+              width="800" height="800"
+              loading="eager" decoding="async">
+            <span class="about-logo-shimmer" aria-hidden="true"></span>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section theme-light" aria-labelledby="about-story">
+        <div class="container split">
+          <div class="img-stack">
+            <img class="main" src="https://picsum.photos/seed/bnf-about1/800/1000" alt="Our head baker shaping dough by hand" loading="lazy" decoding="async" width="800" height="1000">
+            <img class="sub" src="https://picsum.photos/seed/bnf-about2/500/500" alt="A freshly decorated cake being finished" loading="lazy" decoding="async" width="500" height="500">
+            <div class="badge-float" aria-hidden="true"><span><b>10+</b>years of<br>baking</span></div>
+          </div>
+          <div>
+            <p class="eyebrow">Since the very first loaf</p>
+            <h2 id="about-story" style="font-size:clamp(2.3rem,5vw,3.6rem)">From a home oven to a <em class="gold">full confectionery</em></h2>
+            <p>Bake N Frost began with a simple idea: that the best celebrations, big or small, deserve food made with real care. What started with weekend cake orders for friends and family has grown into a full confectionery serving homes, businesses and event planners across the city.</p>
+            <p>Today we bake custom cakes, daily bread and pastries, cater events with complete menus, supply wholesale partners, and train the next generation of bakers in our own academy. The scale has changed. The standard has not — every bake is made fresh, by hand, with ingredients we'd happily serve our own families.</p>
+            <a href="#/contact" class="btn btn-dark" style="margin-top:.8rem">Come say hello <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-band" aria-label="Bakery numbers">
+        <div class="container stats">
+          <div class="stat">
+            <strong><span class="stat-num" data-target="10" data-suffix="+">0</span></strong>
+            <span>Years baking</span>
+          </div>
+          <div class="stat">
+            <strong><span class="stat-num" data-target="5000" data-suffix="+" data-format="comma">0</span></strong>
+            <span>Cakes delivered</span>
+          </div>
+          <div class="stat">
+            <strong><span class="stat-num" data-target="40" data-suffix="+">0</span></strong>
+            <span>Wholesale partners</span>
+          </div>
+          <div class="stat">
+            <strong><span class="stat-num" data-target="300" data-suffix="+">0</span></strong>
+            <span>Academy graduates</span>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section theme-cream2" aria-labelledby="about-values">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">What guides us</p><h2 id="about-values">Our <em class="gold">values</em></h2></div>
+          <div class="grid grid-3">
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i></div><h3>Honest ingredients</h3><p>Real butter, fresh eggs, quality flour and natural flavours. If we wouldn't eat it, we don't bake it.</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-hands" aria-hidden="true"></i></div><h3>Made by hand</h3><p>Shaped, piped and finished by people who care. Every product leaves our kitchen with a little of us in it.</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div><h3>Reliable always</h3><p>On time, on brief, on budget. Our customers and partners trust us because we keep our word.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section theme-light" aria-labelledby="about-time">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">Milestones</p><h2 id="about-time">How we <em class="gold">grew</em></h2></div>
+          <div class="timeline" id="growthTimeline">
+            <div class="tl-line" aria-hidden="true"><span class="tl-line-fill"></span><span class="tl-line-flow"></span></div>
+            <div class="tl-item" style="--i:0">
+              <span class="tl-dot" aria-hidden="true"><span class="tl-dot-ring"></span></span>
+              <div class="tl-body"><div class="year">The beginning</div><p>Weekend cake orders from a home kitchen, shared by word of mouth.</p></div>
+            </div>
+            <div class="tl-item" style="--i:1">
+              <span class="tl-dot" aria-hidden="true"><span class="tl-dot-ring"></span></span>
+              <div class="tl-body"><div class="year">First bakery</div><p>We opened our first production kitchen and started daily bread and pastries.</p></div>
+            </div>
+            <div class="tl-item" style="--i:2">
+              <span class="tl-dot" aria-hidden="true"><span class="tl-dot-ring"></span></span>
+              <div class="tl-body"><div class="year">Catering &amp; wholesale</div><p>Full-menu event catering launched, along with regular supply to local retailers and hotels.</p></div>
+            </div>
+            <div class="tl-item" style="--i:3">
+              <span class="tl-dot" aria-hidden="true"><span class="tl-dot-ring"></span></span>
+              <div class="tl-body"><div class="year">Baking Academy</div><p>We opened our doors to students, turning our kitchen into a classroom.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section theme-dark" aria-labelledby="about-team">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">The people</p><h2 id="about-team">Meet the <em class="gold">team</em></h2></div>
+          <div class="grid grid-4">
+            <article class="card team-card"><div class="avatar" aria-hidden="true">B</div><h3>Head Baker</h3><p>Founder &amp; cake designer</p></article>
+            <article class="card team-card"><div class="avatar" aria-hidden="true">P</div><h3>Pastry Chef</h3><p>Laminated doughs &amp; tarts</p></article>
+            <article class="card team-card"><div class="avatar" aria-hidden="true">C</div><h3>Catering Lead</h3><p>Menus, logistics &amp; service</p></article>
+            <article class="card team-card"><div class="avatar" aria-hidden="true">A</div><h3>Academy Instructor</h3><p>Training &amp; mentorship</p></article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--Menu-page -->
+    <div class="page" id="page-menu" data-title="Menu — Cakes, Bread & Pastries | Bake N Frost">
+      <section class="page-hero page-hero--split" aria-label="Menu introduction">
+        <div class="ring r1" aria-hidden="true"></div>
+        <div class="ring r2" aria-hidden="true"></div>
+        <div class="container menu-hero-grid">
+          <div class="menu-hero-copy">
+            <p class="menu-hero-eyebrow">The menu</p>
+            <h1 tabindex="-1">Baked fresh, every <em>single day</em></h1>
+            <p class="menu-hero-lead">Cakes, bread and pastries — baked fresh daily. Cakes are made to order, so please give us notice. Please order cakes at least 72 hours ahead.</p>
+          </div>
+          <figure class="menu-hero-media">
+            <!-- Menu hero photo — replace URL here anytime -->
+            <img
+              src="https://i.pinimg.com/1200x/35/69/f7/3569f763ad1322a45fb451dda10e39de.jpg"
+              alt="Hand-piped wedding cake"
+              width="1200" height="1500"
+              loading="eager" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section theme-light" aria-labelledby="menu-list">
+        <div class="container">
+          <h2 id="menu-list" class="sr-only">Menu items</h2>
+          <div class="filters" role="group" aria-label="Filter menu by category">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" type="button" data-filter="cakes" aria-pressed="false">Cakes</button>
+            <button class="filter-btn" type="button" data-filter="bread" aria-pressed="false">Bread</button>
+            <button class="filter-btn" type="button" data-filter="pastries" aria-pressed="false">Pastries</button>
+          </div>
+          <div class="grid grid-3" id="menuGrid">
+            <!-- CAKES -->
+            <article class="card item-card menu-item" data-cat="cakes"><div class="item-media"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=640&h=480&q=80" alt="Vanilla bean celebration cake" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cake</span></div><div class="item-body"><h3>Vanilla Bean Celebration</h3><p>Light vanilla sponge, Swiss meringue buttercream, finished to your colour theme.</p><div class="item-foot"><span class="price"><small>from</small>₦25,000</span><button class="mini-btn" type="button" data-order="Vanilla Bean Celebration Cake">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="cakes"><div class="item-media"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=640&h=480&q=80" alt="Rich chocolate ganache drip cake" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cake</span></div><div class="item-body"><h3>Dark Chocolate Drip</h3><p>Moist cocoa sponge layered with dark ganache and a glossy chocolate drip.</p><div class="item-foot"><span class="price"><small>from</small>₦28,000</span><button class="mini-btn" type="button" data-order="Dark Chocolate Drip Cake">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="cakes"><div class="item-media"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=640&h=480&q=80" alt="Red velvet cake with cream cheese frosting" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cake</span></div><div class="item-body"><h3>Red Velvet Romance</h3><p>Classic red velvet with tangy cream cheese frosting. A wedding-table favourite.</p><div class="item-foot"><span class="price"><small>from</small>₦30,000</span><button class="mini-btn" type="button" data-order="Red Velvet Cake">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="cakes"><div class="item-media"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=640&h=480&q=80" alt="Multi-tier wedding cake with sugar flowers" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cake</span></div><div class="item-body"><h3>Tiered Wedding Cake</h3><p>Two to five tiers, custom flavours per tier and hand-crafted sugar flowers. Includes a tasting.</p><div class="item-foot"><span class="price"><small>from</small>₦150,000</span><button class="mini-btn" type="button" data-order="Tiered Wedding Cake">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <!-- BREAD -->
+            <article class="card item-card menu-item" data-cat="bread"><div class="item-media"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=640&h=480&q=80" alt="Soft sliced sandwich loaf" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div><div class="item-body"><h3>Soft Milk Loaf</h3><p>Our everyday sandwich loaf: pillowy, lightly sweet and perfect for toast.</p><div class="item-foot"><span class="price">₦2,500</span><button class="mini-btn" type="button" data-order="Soft Milk Loaf">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="bread"><div class="item-media"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=640&h=480&q=80" alt="Country sourdough loaf" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div><div class="item-body"><h3>Country Sourdough</h3><p>24-hour ferment, blistered crust, open crumb. Best with good butter.</p><div class="item-foot"><span class="price">₦4,500</span><button class="mini-btn" type="button" data-order="Country Sourdough">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="bread"><div class="item-media"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=640&h=480&q=80" alt="Whole wheat seeded loaf" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div><div class="item-body"><h3>Seeded Wholewheat</h3><p>Hearty wholewheat studded with sunflower, flax and sesame seeds.</p><div class="item-foot"><span class="price">₦3,800</span><button class="mini-btn" type="button" data-order="Seeded Wholewheat Loaf">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="bread"><div class="item-media"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=640&h=480&q=80" alt="Soft burger buns" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div><div class="item-body"><h3>Brioche Burger Buns</h3><p>Buttery, golden buns that hold up to the juiciest burger. Sold in packs of six.</p><div class="item-foot"><span class="price">₦3,000</span><button class="mini-btn" type="button" data-order="Brioche Burger Buns (pack of 6)">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <!-- PASTRIES -->
+            <article class="card item-card menu-item" data-cat="pastries"><div class="item-media"><img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=640&h=480&q=80" alt="Golden butter croissants" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastry</span></div><div class="item-body"><h3>All-Butter Croissant</h3><p>Hand-laminated over three days. Flaky, golden and unapologetically buttery.</p><div class="item-foot"><span class="price">₦2,200</span><button class="mini-btn" type="button" data-order="All-Butter Croissant">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="pastries"><div class="item-media"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=640&h=480&q=80" alt="Flaky meat pies" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastry</span></div><div class="item-body"><h3>Classic Meat Pie</h3><p>Flaky shortcrust filled with seasoned minced beef, potato and carrot.</p><div class="item-foot"><span class="price">₦1,500</span><button class="mini-btn" type="button" data-order="Classic Meat Pie">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="pastries"><div class="item-media"><img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?auto=format&fit=crop&w=640&h=480&q=80" alt="Fresh fruit tarts" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastry</span></div><div class="item-body"><h3>Fresh Fruit Tart</h3><p>Crisp sweet pastry, vanilla custard and glazed seasonal fruit.</p><div class="item-foot"><span class="price">₦2,800</span><button class="mini-btn" type="button" data-order="Fresh Fruit Tart">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="pastries"><div class="item-media"><img src="https://images.unsplash.com/photo-1612203985729-70726954388c?auto=format&fit=crop&w=640&h=480&q=80" alt="Cinnamon rolls with icing" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastry</span></div><div class="item-body"><h3>Cinnamon Swirl Roll</h3><p>Soft, spiced and finished with a cream cheese glaze. Warm from the oven on weekends.</p><div class="item-foot"><span class="price">₦2,000</span><button class="mini-btn" type="button" data-order="Cinnamon Swirl Roll">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+          </div>
+          <p class="note">Prices are indicative and may vary with size, design and ingredients. Custom cakes need at least 3 days' notice (7 days for wedding cakes).</p><!-- PLACEHOLDER prices -->
+        </div>
+      </section>
+
+      <section class="section theme-dark" id="custom" aria-labelledby="custom-title">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">Custom cakes</p><h2 id="custom-title">How a custom cake <em class="gold">comes to life</em></h2></div>
+          <ol class="stepper" aria-label="How a custom cake order works">
+            <li class="stepper-item" style="--i:0">
+              <span class="stepper-dot" aria-hidden="true"><i class="fa-solid fa-lightbulb"></i><b>1</b></span>
+              <div class="stepper-body"><h3>Share your idea</h3><p>Tell us the occasion, date, guest count and inspiration photos.</p></div>
+            </li>
+            <li class="stepper-item" style="--i:1">
+              <span class="stepper-dot" aria-hidden="true"><i class="fa-solid fa-palette"></i><b>2</b></span>
+              <div class="stepper-body"><h3>Pick flavours</h3><p>Choose sponge, filling and frosting. Tastings available for large cakes.</p></div>
+            </li>
+            <li class="stepper-item" style="--i:2">
+              <span class="stepper-dot" aria-hidden="true"><i class="fa-solid fa-credit-card"></i><b>3</b></span>
+              <div class="stepper-body"><h3>Confirm &amp; pay</h3><p>Receive your quote and secure your date with a deposit.</p></div>
+            </li>
+            <li class="stepper-item" style="--i:3">
+              <span class="stepper-dot" aria-hidden="true"><i class="fa-solid fa-gift"></i><b>4</b></span>
+              <div class="stepper-body"><h3>Enjoy</h3><p>Collect from our kitchen or have it carefully delivered.</p></div>
+            </li>
+          </ol>
+          <div class="btn-row" style="justify-content:center;margin-top:3.5rem"><a class="btn btn-primary" href="#/contact/enquiry">Request a custom cake <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        </div>
+      </section>
+    </div>
+
+    <!--Catering Page -->
+    <div class="page" id="page-catering" data-title="Event Catering | Bake N Frost Confectionaries">
+      <section class="page-hero page-hero--split page-hero--flip" aria-label="Catering introduction">
+        <div class="ring r1" aria-hidden="true"></div>
+        <div class="ring r2" aria-hidden="true"></div>
+        <div class="container menu-hero-grid catering-hero-grid">
+          <figure class="menu-hero-media catering-hero-media">
+            <!-- Catering hero photo — replace URL here anytime -->
+            <img
+              src="https://i.pinimg.com/1200x/83/9c/96/839c96befa98396ac196365b952ecd54.jpg"
+              alt="Catered event table with plated dishes and dessert"
+              width="1200" height="900"
+              loading="eager" decoding="async">
+          </figure>
+          <div class="menu-hero-copy catering-hero-copy">
+            <p class="menu-hero-eyebrow">Catering</p>
+            <h1 tabindex="-1">Food for every <em>occasion</em></h1>
+            <p class="menu-hero-lead">Not just baked goods — complete menus for weddings, corporate events and family celebrations. From small chops to full service, we plan, cook and deliver with care.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section theme-light" aria-labelledby="cater-what">
+        <div class="container split">
+          <div>
+            <p class="eyebrow">Beyond the oven</p>
+            <h2 id="cater-what" style="font-size:clamp(2.3rem,5vw,3.5rem)">A full table, <em class="gold">beautifully served</em></h2>
+            <p>Our catering team handles the food so you can enjoy your own event. We cook, plate and serve complete menus — from small chops and party jollof to grilled mains and a dessert table that doubles as décor.</p>
+            <ul class="checklist"><li>Small chops, finger foods and canapés</li><li>Rice dishes, swallows, grills and continental mains</li><li>Cakes, cupcakes, pastries and dessert tables</li><li>Drinks, setup, service staff and clean-up</li></ul>
+          </div>
+          <img style="border-radius:var(--radius-l);box-shadow:var(--shadow-m);aspect-ratio:4/3;object-fit:cover;width:100%" src="https://i.pinimg.com/736x/c1/a9/32/c1a9320edaeac652307ad3ffb6a46096.jpg" alt="An elegantly arranged catering buffet" loading="lazy" decoding="async" width="900" height="700">
+        </div>
+      </section>
+
+      <section class="section theme-dark" aria-labelledby="cater-pack">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">Packages</p><h2 id="cater-pack">Choose your <em class="gold">style of service</em></h2><p>Every package is customised to your menu, venue and budget. These are starting points.</p></div>
+          <div class="grid grid-3">
+            <article class="card package"><p class="guests">10 – 40 guests</p><h3>Intimate Gatherings</h3><p>Birthdays, house parties and small receptions.</p><ul class="checklist"><li>Choice of 2 mains &amp; 2 sides</li><li>Small chops platter</li><li>Custom celebration cake</li><li>Delivery &amp; setup</li></ul><a href="#/contact/enquiry" class="btn btn-ghost" data-topic="Catering quote">Request a quote</a></article>
+            <article class="card package featured"><span class="ribbon">Most popular</span><p class="guests">40 – 150 guests</p><h3>Signature Events</h3><p>Weddings, corporate dinners and milestone celebrations.</p><ul class="checklist"><li>Full multi-course menu</li><li>Live grill or carving station</li><li>Dessert table with cake</li><li>Service staff &amp; table styling</li></ul><a href="#/contact/enquiry" class="btn btn-primary" data-topic="Catering quote">Request a quote</a></article>
+            <article class="card package"><p class="guests">150+ guests</p><h3>Grand Celebrations</h3><p>Large weddings, conferences and festivals.</p><ul class="checklist"><li>Dedicated event manager</li><li>Multiple serving stations</li><li>Tiered cake &amp; pastry displays</li><li>On-site kitchen team</li></ul><a href="#/contact/enquiry" class="btn btn-ghost" data-topic="Catering quote">Request a quote</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section theme-cream2" aria-labelledby="cater-how">
+        <div class="container">
+          <div class="section-head center">
+            <p class="eyebrow">How it works</p>
+            <h2 id="cater-how">From enquiry to <em class="gold">empty plates</em></h2>
+          </div>
+          <ol class="how-steps" aria-label="Catering process from enquiry to event day">
+            <li class="how-step">
+              <span class="how-num" aria-hidden="true">01</span>
+              <h3>Brief</h3>
+              <p>Share your date, venue, guest count and any dietary needs.</p>
+            </li>
+            <li class="how-step">
+              <span class="how-num" aria-hidden="true">02</span>
+              <h3>Menu &amp; quote</h3>
+              <p>We propose a menu and a transparent, itemised quote.</p>
+            </li>
+            <li class="how-step">
+              <span class="how-num" aria-hidden="true">03</span>
+              <h3>Tasting</h3>
+              <p>Sample your dishes and fine-tune before you commit.</p>
+            </li>
+            <li class="how-step">
+              <span class="how-num" aria-hidden="true">04</span>
+              <h3>Event day</h3>
+              <p>We arrive early, set up, serve and clear — stress-free.</p>
+            </li>
+          </ol>
+          <div class="how-steps-cta">
+            <a href="#/contact/enquiry" class="btn btn-primary" data-topic="Catering quote">Request a catering quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--Wholesale Page-->
+    <div class="page" id="page-wholesale" data-title="Wholesale & Bread Supply | Bake N Frost">
+      <section class="page-hero"><div class="ring r1" aria-hidden="true"></div><div class="ring r2" aria-hidden="true"></div>
+        <div class="container"><p class="crumbs">Home / Wholesale</p><h1 tabindex="-1">Wholesale &amp; <em class="gold" style="color:var(--amber)">supply</em></h1><p>Dependable daily bread and baked products for shops, hotels, schools, restaurants and event planners.</p></div>
+      </section>
+
+      <section class="section theme-light" aria-labelledby="ws-why">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">Why partners choose us</p><h2 id="ws-why">Quality you can <em class="gold">count on</em></h2></div>
+          <div class="grid grid-4">
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-clock" aria-hidden="true"></i></div><h3>Early delivery</h3><p>Fresh stock arrives before you open, six days a week.</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div><h3>Consistent quality</h3><p>Same weight, taste and finish in every batch.</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-box-open" aria-hidden="true"></i></div><h3>Custom packaging</h3><p>Private-label bags and branded boxes available.</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></div><h3>Flexible terms</h3><p>Weekly or monthly invoicing for established partners.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section theme-dark" aria-labelledby="ws-table">
+        <div class="container">
+          <div class="section-head"><p class="eyebrow">Trade catalogue</p><h2 id="ws-table">What we <em class="gold">supply</em></h2></div>
+          <div class="table-wrap">
+            <table>
+              <caption>Wholesale products (sample specification)</caption>
+              <thead><tr><th scope="col">Product</th><th scope="col">Pack size</th><th scope="col">Minimum order</th><th scope="col">Lead time</th></tr></thead>
+              <tbody>
+                <tr><td>Sliced sandwich bread</td><td>Single loaf (500 g)</td><td>50 loaves</td><td>Next morning</td></tr>
+                <tr><td>Burger buns &amp; hot-dog rolls</td><td>Pack of 6</td><td>30 packs</td><td>Next morning</td></tr>
+                <tr><td>Agege &amp; tin bread</td><td>Single loaf</td><td>50 loaves</td><td>Next morning</td></tr>
+                <tr><td>Meat pies &amp; sausage rolls</td><td>Tray of 24</td><td>5 trays</td><td>24 hours</td></tr>
+                <tr><td>Doughnuts &amp; buns</td><td>Box of 12</td><td>10 boxes</td><td>24 hours</td></tr>
+                <tr><td>Slab &amp; loaf cakes</td><td>Per slab</td><td>10 slabs</td><td>48 hours</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note" style="text-align:left">Specifications and minimums are placeholders — confirm your real product range and terms before launch.</p><!-- PLACEHOLDER trade data -->
+        </div>
+      </section>
+
+      <section class="section theme-cream2" aria-labelledby="ws-who">
+        <div class="container split">
+          <div>
+            <p class="eyebrow">Who we supply</p>
+            <h2 id="ws-who" style="font-size:clamp(2.2rem,5vw,3.4rem)">Built for businesses that <em class="gold">never run out</em></h2>
+            <ul class="checklist"><li>Supermarkets, mini-marts and corner shops</li><li>Hotels, restaurants and cafés</li><li>Schools, hospitals and canteens</li><li>Event planners, caterers and resellers</li></ul>
+            <a href="#/contact/enquiry" data-topic="Wholesale supply" class="btn btn-dark" style="margin-top:1rem">Apply for a trade account <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="grid grid-2">
+            <div class="card step"><h3>Apply</h3><p>Tell us what you need and how often.</p></div>
+            <div class="card step"><h3>Sample</h3><p>Try our products with a trial order.</p></div>
+            <div class="card step"><h3>Agree terms</h3><p>Set delivery days, prices and invoicing.</p></div>
+            <div class="card step"><h3>Receive</h3><p>Fresh deliveries, right on schedule.</p></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--Baking Academy-->
+    <div class="page" id="page-academy" data-title="Baking Academy & Training | Bake N Frost">
+      <section class="page-hero page-hero--split page-hero--academy" aria-label="Baking Academy introduction">
+        <div class="ring r1" aria-hidden="true"></div>
+        <div class="ring r2" aria-hidden="true"></div>
+        <div class="container menu-hero-grid academy-hero-grid">
+          <div class="menu-hero-copy academy-hero-copy">
+            <p class="menu-hero-eyebrow">Academy</p>
+            <h1 tabindex="-1">Learn the craft. <em>Bake with purpose.</em></h1>
+            <p class="menu-hero-lead">Hands-on classes from first-time baker to business-ready professional — taught in a working kitchen by the team behind Bake N Frost.</p>
+            <div class="btn-row" style="margin-top:1.5rem">
+              <a href="#/contact/enquiry" data-topic="Baking Academy" class="btn btn-primary">Enrol or enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <figure class="menu-hero-media academy-hero-media">
+            <!-- Academy hero photo — replace URL here anytime -->
+            <img
+              src="https://i.pinimg.com/1200x/01/b0/11/01b011b3526f7077414eb0e771b9d77d.jpg"
+              alt="Hands-on baking class in a professional kitchen"
+              width="1200" height="900"
+              loading="eager" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section theme-light" aria-labelledby="ac-courses">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">Courses</p><h2 id="ac-courses">Find your <em class="gold">class</em></h2><p>Small groups, real ovens and plenty of practice. Every student takes home what they bake.</p></div>
+          <div class="grid grid-3">
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i></div><h3>Cake Baking Foundations</h3><p>Sponges, fillings, buttercream, levelling and basic decorating — everything you need to start.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>4 weeks</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦85,000</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div><h3>Advanced Cake Decorating</h3><p>Piping, fondant, tiered structures, sugar flowers and modern drip &amp; textured finishes.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>3 weeks</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Intermediate</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦110,000</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i></div><h3>Bread &amp; Pastry Mastery</h3><p>Yeast doughs, sourdough, laminated pastries, pies and rolls — the science and the craft.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>4 weeks</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦95,000</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div><h3>Baking Business Bootcamp</h3><p>Costing, pricing, branding, sourcing and customer service for turning a skill into income.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 week</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦60,000</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i></div><h3>Weekend Masterclass</h3><p>A single focused day on one skill — cupcakes, small chops, cookies or doughnuts.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 day</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦25,000</p></article>
+            <article class="card"><div class="icon-badge"><i class="fa-solid fa-people-group" aria-hidden="true"></i></div><h3>Private &amp; Group Training</h3><p>Tailored sessions for teams, schools, churches or friends — at our kitchen or yours.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>Flexible</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Custom</span></div><p class="price" style="margin-top:1rem"><small>on</small>Request</p></article>
+          </div>
+          <p class="note">Fees and durations are placeholders — update with your real course details.</p><!-- PLACEHOLDER course fees -->
+        </div>
+      </section>
+
+      <section class="section theme-dark" aria-labelledby="ac-why">
+        <div class="container split">
+          <img style="border-radius:var(--radius-l);box-shadow:var(--shadow-m);aspect-ratio:4/3;object-fit:cover;width:100%" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&h=700&q=80" alt="Students learning to decorate cakes in a bright kitchen classroom" loading="lazy" decoding="async" width="900" height="700">
+          <div>
+            <p class="eyebrow">Why learn with us</p>
+            <h2 id="ac-why" style="font-size:clamp(2.2rem,5vw,3.4rem)">Learn in a <em class="gold">working bakery</em></h2>
+            <ul class="checklist"><li>Small classes — maximum 10 students per instructor</li><li>Hands-on practice with professional equipment</li><li>Recipe book and starter toolkit included</li><li>Certificate of completion</li><li>Post-course mentorship and WhatsApp community</li></ul>
+            <a href="#/contact/enquiry" data-topic="Baking Academy" class="btn btn-primary" style="margin-top:1rem">Enrol or ask a question <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section theme-cream2" aria-labelledby="ac-faq">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">Good to know</p><h2 id="ac-faq">Academy <em class="gold">questions</em></h2></div>
+          <div class="accordion">
+            <div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="acp1" id="acb1">Do I need any experience?<i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="acp1" role="region" aria-labelledby="acb1"><div><p>Not at all. Our foundation courses assume no prior knowledge. We start with the basics and build up step by step.</p></div></div></div>
+            <div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="acp2" id="acb2">What should I bring on the first day?<i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="acp2" role="region" aria-labelledby="acb2"><div><p>Just yourself, a notebook and an apron if you have one. Ingredients and equipment are provided, and you'll take your bakes home.</p></div></div></div>
+            <div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="acp3" id="acb3">Can I pay in instalments?<i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="acp3" role="region" aria-labelledby="acb3"><div><p>Yes. A deposit secures your place and the balance can be split across the length of the course. Contact us to arrange a plan.</p></div></div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--Contact-page-->
+    <div class="page" id="page-contact" data-title="Contact & Orders | Bake N Frost Confectionaries">
+      <section class="page-hero page-hero--split page-hero--contact" aria-label="Contact introduction">
+        <div class="ring r1" aria-hidden="true"></div>
+        <div class="ring r2" aria-hidden="true"></div>
+        <div class="container menu-hero-grid contact-hero-grid">
+          <div class="menu-hero-copy contact-hero-copy">
+            <p class="menu-hero-eyebrow">Contact</p>
+            <h1 tabindex="-1">Tell us what <em>you need.</em></h1>
+            <p class="menu-hero-lead">Orders, quotes, partnerships or a quick question — drop by, call, or write. We reply as soon as possible.</p>
+            <div class="btn-row" style="margin-top:1.5rem">
+              <a href="#enquiry" class="btn btn-primary">Send an enquiry <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">WhatsApp us</a>
+            </div>
+          </div>
+          <figure class="menu-hero-media contact-hero-media">
+            <!-- Contact hero photo — replace URL here anytime -->
+            <img
+              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&h=900&q=85"
+              alt="Warm bakery kitchen ready to welcome guests"
+              width="1200" height="900"
+              loading="eager" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <!-- 1 · VISIT: address, hours and the map side by side (the thing most visitors come for) -->
+      <section class="section theme-white" id="visit" aria-labelledby="visit-title">
+        <div class="container visit-grid">
+          <div>
+            <p class="eyebrow">Come and visit</p>
+            <h2 id="visit-title" style="font-size:clamp(2.2rem,5vw,3.3rem)">Find us, call us, or <em class="gold">drop by</em></h2>
+            <ul class="contact-list">
+              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><div><strong>Visit the bakery</strong><span>12 Sample Street, Ikeja, Lagos, Nigeria</span></div></li><!-- PLACEHOLDER address -->
+              <li><i class="fa-regular fa-clock" aria-hidden="true"></i><div><strong>Opening hours</strong><span>Mon – Sat: 7:00am – 7:00pm<br>Sunday: 10:00am – 4:00pm</span></div></li>
+              <li><i class="fa-solid fa-phone" aria-hidden="true"></i><div><strong>Call or WhatsApp</strong><a href="tel:+2348000000000">+234 800 000 0000</a></div></li><!-- PLACEHOLDER phone -->
+              <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><div><strong>Email</strong><a href="mailto:hello@bakenfrost.com">hello@bakenfrost.com</a></div></li><!-- PLACEHOLDER email -->
+            </ul>
+            <div class="btn-row" style="margin-top:1.8rem">
+              <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ikeja,Lagos,Nigeria" target="_blank" rel="noopener noreferrer">Get directions <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i></a>
+              <a class="btn btn-ghost" href="#/contact/enquiry">Send an enquiry</a>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <!-- PLACEHOLDER: replace the q= value (or paste the "Embed a map" URL from Google Maps) with your exact address -->
+            <iframe title="Map showing the location of Bake N Frost Confectionaries" src="https://www.google.com/maps?q=Ikeja,Lagos,Nigeria&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 · ENQUIRY FORM -->
+      <section class="section theme-cream2" id="enquiry" aria-labelledby="contact-title">
+        <div class="container enquiry-wrap">
+          <div class="section-head center">
+            <p class="eyebrow">Get in touch</p>
+            <h2 id="contact-title">We'd love to hear <em class="gold">from you</em></h2>
+            <p>Tell us what you need and we'll reply within one working day.</p>
+          </div>
+          <div class="form-card">
+            <form id="contactForm" novalidate aria-describedby="formStatus">
+              <div class="form-row">
+                <div class="field"><label for="cf-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name"><p class="error" id="err-name"></p></div>
+                <div class="field"><label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label><input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="err-email"><p class="error" id="err-email"></p></div>
+              </div>
+              <div class="form-row">
+                <div class="field"><label for="cf-phone">Phone / WhatsApp <span class="req" aria-hidden="true">*</span></label><input id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+234 …" required aria-describedby="err-phone"><p class="error" id="err-phone"></p></div>
+                <div class="field"><label for="cf-topic">I'm enquiring about <span class="req" aria-hidden="true">*</span></label>
+                  <select id="cf-topic" name="topic" required aria-describedby="err-topic">
+                    <option value="">Choose one…</option><option>Custom cake order</option><option>Bread &amp; pastry order</option><option>Catering quote</option><option>Wholesale supply</option><option>Baking Academy</option><option>General question</option>
+                  </select><p class="error" id="err-topic"></p></div>
+              </div>
+              <div class="field"><label for="cf-date">Date needed (optional)</label><input id="cf-date" name="date" type="date"></div>
+              <div class="field"><label for="cf-message">Your message <span class="req" aria-hidden="true">*</span></label><textarea id="cf-message" name="message" required aria-describedby="err-message" placeholder="Tell us about your occasion, guest count, flavours or questions…"></textarea><p class="error" id="err-message"></p></div>
+              <div class="field" style="margin-bottom:0"><label class="check" for="cf-consent"><input id="cf-consent" name="consent" type="checkbox" required aria-describedby="err-consent"><span>I agree to be contacted about my enquiry. <span class="req" aria-hidden="true">*</span></span></label><p class="error" id="err-consent" style="margin:-.8rem 0 1rem"></p></div>
+              <button class="btn btn-primary" type="submit" id="cf-submit">Send message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+              <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section theme-light" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-head center"><p class="eyebrow">FAQ</p><h2 id="faq-title">Frequently <em class="gold">asked</em></h2></div>
+          <div class="accordion">
+            <div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="fp1" id="fb1">How far ahead should I order a custom cake?<i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="fp1" role="region" aria-labelledby="fb1"><div><p>We recommend at least 3 days for celebration cakes and 7–14 days for wedding or multi-tier cakes, especially in busy seasons like December.</p></div></div></div>
+            <div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="fp2" id="fb2">Do you deliver?<i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="fp2" role="region" aria-labelledby="fb2"><div><p>Yes. We deliver across the city, with fees based on distance. Cakes are transported in protective boxes, and tiered cakes are set up on site.</p></div></div></div>
+            <div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="fp3" id="fb3">Can you cater for dietary requirements?<i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="fp3" role="region" aria-labelledby="fb3"><div><p>We can accommodate vegetarian, egg-free and many allergy-conscious requests. Please tell us when ordering so we can plan safely.</p></div></div></div>
+            <div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="fp4" id="fb4">How do I pay?<i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="fp4" role="region" aria-labelledby="fb4"><div><p>A deposit confirms your order, with the balance due before collection or delivery. We accept bank transfer and card payments.</p></div></div></div>
+            <div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="fp5" id="fb5">What's the minimum for wholesale?<i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="fp5" role="region" aria-labelledby="fb5"><div><p>Minimums vary by product. See the Wholesale page for a sample catalogue, then send an enquiry and we'll agree terms around your needs.</p></div></div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER (multi-column)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#/home" class="brand" aria-label="Bake N Frost — home">
+          <span class="brand-logo" aria-hidden="true"></span>
+          <span class="brand-text"><strong>Bake <span class="gold-n">N</span> Frost</strong><small>Confectionaries</small></span>
+        </a>
+        <p style="margin-top:1.2rem;max-width:30ch">Custom cakes, artisan bread, pastries, catering, wholesale supply and baking training. Freshly made for you.</p>
+        <div class="socials" aria-label="Social media">
+          <!-- PLACEHOLDER: replace each URL with your real profile links -->
+          <a href="https://instagram.com/bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://facebook.com/bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://tiktok.com/@bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a href="https://x.com/bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://youtube.com/@bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h4>Explore</h4>
+        <ul><li><a href="#/home">Home</a></li><li><a href="#/about">Our Story</a></li><li><a href="#/menu">Menu</a></li><li><a href="#/contact">Contact</a></li></ul>
+      </nav>
+      <nav aria-label="Services">
+        <h4>Services</h4>
+        <ul><li><a href="#/menu/custom">Custom Cakes</a></li><li><a href="#/catering">Catering</a></li><li><a href="#/wholesale">Wholesale Supply</a></li><li><a href="#/academy">Baking Academy</a></li></ul>
+      </nav>
+      <div>
+        <h4>Visit &amp; contact</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>12 Sample Street, Ikeja, Lagos</span></li>
+          <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+2348000000000">+234 800 000 0000</a></li>
+          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:hello@bakenfrost.com">hello@bakenfrost.com</a></li>
+          <li><i class="fa-regular fa-clock" aria-hidden="true"></i><span>Mon–Sat 7am–7pm · Sun 10am–4pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> Bake N Frost Confectionaries. All rights reserved.</span>
+      <span>Freshly made for you.</span>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="round-btn to-top" id="toTop" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <button class="round-btn lb-btn lb-close" id="lbClose" type="button" aria-label="Close image viewer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <button class="round-btn lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+    <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+    <button class="round-btn lb-btn lb-next" id="lbNext" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+  </div>
+
+
+  <!-- Floating WhatsApp — PLACEHOLDER: replace 2348000000000 with your number -->
+  <a class="wa-fab" id="waFab" href="https://wa.me/2348000000000?text=Hello%20Bake%20N%20Frost%2C%20I%27d%20like%20to%20enquire%20about%20catering." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <span class="wa-fab-rings" aria-hidden="true">
+      <span class="wa-ring r1"></span>
+      <span class="wa-ring r2"></span>
+      <span class="wa-ring r3"></span>
+    </span>
+    <span class="wa-fab-core" aria-hidden="true">
+      <i class="fa-brands fa-whatsapp"></i>
+    </span>
+    <span class="wa-fab-label">WhatsApp us</span>
+  </a>
+
+</body>
+</html>
