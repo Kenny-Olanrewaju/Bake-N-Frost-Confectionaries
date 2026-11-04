@@ -9,7 +9,7 @@
   time, updates the <title>, moves keyboard focus and returns to the top.
 
   PAGES : Home · About · Menu · Catering · Wholesale · Academy · Contact
-  EDIT  : Search for "PLACEHOLDER" to find phone numbers, prices, social URLs,
+  EDIT  : Search for "PLACEHOLDER" to find phone numbers, social URLs,
           map address (here) and the form endpoint (in script.js).
   ============================================================================
 -->
@@ -19,21 +19,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- ===== SEO ===== -->
-  <title>Bake N Frost Confectionaries</title>
-  <meta name="description" content="Bake N Frost Confectionaries — freshly made custom cakes, artisan bread and pastries, full-service catering, wholesale bread supply and professional baking classes.">
-  <meta name="keywords" content="custom cakes, bakery, bread, pastries, catering, wholesale bread supplier, baking classes, baking academy, birthday cakes, wedding cakes">
+  <title>Bake N Frost Confectionaries | Cakes, Bread &amp; Pastries in Ikorodu</title>
+  <meta name="description" content="Order custom cakes, fresh bread and pastries from Bake N Frost Confectionaries in Ikorodu, Lagos. Explore catering, wholesale supply and baking classes.">
   <meta name="author" content="Bake N Frost Confectionaries">
   <meta name="theme-color" content="#1E0F26">
-  <link rel="canonical" href="https://www.bakenfrost.onrender.com/"><!-- PLACEHOLDER domain -->
+  <link rel="canonical" href="https://bake-n-frost-confectionaries.onrender.com/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
 
-  <!-- Open Graph / Twitter -->
+  <meta property="og:url" content="https://bake-n-frost-confectionaries.onrender.com/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Bake N Frost Confectionaries">
-  <meta property="og:description" content="Custom cakes, artisan bread, pastries, catering, wholesale supply and baking training.">
-  <meta property="og:image" content="https://picsum.photos/seed/bnf-og/1200/630">
+  <meta property="og:site_name" content="Bake N Frost Confectionaries">
+  <meta property="og:locale" content="en_NG">
+  <meta property="og:title" content="Bake N Frost Confectionaries | Cakes, Bread &amp; Pastries">
+  <meta property="og:description" content="Custom cakes, freshly baked bread and pastries, catering, wholesale supply and baking classes in Ikorodu, Lagos.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bake N Frost Confectionaries">
+  <meta name="twitter:description" content="Custom cakes, freshly baked bread and pastries, catering and baking classes in Ikorodu, Lagos.">
 
-  <!-- Structured data for search engines (replace placeholder details) -->
+<meta property="og:image" content="https://bake-n-frost-confectionaries.onrender.com/images/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bake N Frost Confectionaries logo">
+  <meta name="twitter:image" content="https://bake-n-frost-confectionaries.onrender.com/images/social-preview.jpg">
+  <!-- Local business structured data: only details already present in the site are included. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,11 +49,20 @@
     "name": "Bake N Frost Confectionaries",
     "slogan": "Freshly made for you",
     "description": "Custom cakes, bread, pastries, catering, wholesale supply and baking classes.",
-    "telephone": "+234-800-000-0000",
-    "email": "hello@bakenfrost.com",
-    "address": { "@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG" },
-    "priceRange": "₦₦",
-    "openingHours": ["Mo-Sa 07:00-19:00", "Su 10:00-16:00"]
+    "url": "https://bake-n-frost-confectionaries.onrender.com/",
+    "image": "https://bake-n-frost-confectionaries.onrender.com/images/social-preview.jpg",
+    "telephone": "+2348140147001",
+    "email": "bakenfrostconfectioneries@gmail.com",
+    "sameAs": ["https://instagram.com/bakenfrost", "https://www.facebook.com/bakenfrostconf", "https://www.tiktok.com/@bakenfrost2", "https://youtube.com/@bakenfrost"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5 Apple Street, Off Shagamu Road, Apeka Estate",
+      "addressLocality": "Ikorodu",
+      "addressRegion": "Lagos",
+      "addressCountry": "NG"
+    },
+    "openingHours": ["Mo-Fr 08:00-18:00", "Sa-Su 13:20-18:00"],
+    "areaServed": {"@type": "AdministrativeArea", "name": "Lagos, Nigeria"}
   }
   </script>
 
@@ -55,19 +72,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preconnect" href="https://picsum.photos">
-  <link rel="preconnect" href="https://fastly.picsum.photos" crossorigin>
-  <link rel="preload" as="image" href="https://i.pinimg.com/736x/21/20/34/212034a4eab9075633f9cbfdcac1543e.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/4b2b751d-a744-4fc9-ba9b-bf6e83f38cc9.jfif" fetchpriority="high">
 
   <!-- ===== Fonts (only the weights actually used) ===== -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&amp;family=DM+Sans:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&amp;family=DM+Sans:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet"></noscript>
 
   <!-- Icons load without blocking first paint -->
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"></noscript>
 
   <!-- Adds .js to <html> early so CSS can hide inactive pages only when JS runs -->
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    document.documentElement.classList.add('js');
+    /* Show the page named in the address bar from the very first paint (styles.css: .js.r-xxx).
+       script.js removes these classes once its router has taken over. */
+    (function () {
+      var r = (location.hash.replace(/^#\/?/, '') || 'home').split('/')[0];
+      if (['home','about','menu','catering','wholesale','academy','contact'].indexOf(r) < 0) r = 'home';
+      document.documentElement.classList.add('r-' + r);
+    })();
+    if ('IntersectionObserver' in window &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('reveal-capable');
+    }
+  </script>
 
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
@@ -102,7 +131,37 @@
         <a href="#/contact" data-route="contact">Contact</a>
       </div>
 
-      <a href="#/contact/enquiry" class="btn btn-primary nav-cta">Order now</a>
+      <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn" type="button" aria-haspopup="dialog" aria-controls="cartDrawer" aria-label="Open cart, empty">
+          <svg class="cart-svg" viewBox="0 0 32 32" fill="none"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <!-- Bakery treats sitting in the basket -->
+            <path class="cart-food" d="M10.2 10.1 8.9 7.9c-.7-1.2-.2-2.7 1-3.3 1.1-.6 2.4-.1 3 1l1.4 2.5"
+                  stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="cart-food-detail" d="m10.1 6.2 1.2 2.1m1.1-2.8 1.1 2"
+                  stroke="currentColor" stroke-width="1.05" stroke-linecap="round"/>
+            <path class="cart-food" d="M16.1 9.1c.4-2.1 2.4-3.5 4.4-3.1 1.1.2 1.9 1 2.2 2.1 1.6.2 2.7 1.6 2.5 3.1-.2 1.5-1.5 2.5-3 2.3l-6.5-1"
+                  stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="cart-food-detail" d="m18.2 7.1.9 1.3m2.2-.4.2 1.5m-5.2 1.3 1.2 1.2"
+                  stroke="currentColor" stroke-width="1.05" stroke-linecap="round"/>
+            <!-- Shopping cart basket and handle -->
+            <path class="cart-handle" d="M3.1 7.5h3l2.2 13.1c.2 1.1 1.1 1.9 2.2 1.9h11.1"
+                  stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="cart-basket" d="M7.2 11.1h19l-2 8.1c-.2.9-1 1.5-1.9 1.5H10.1"
+                  stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="cart-basket-detail" d="m12.2 12 .7 6.7m5.1-6.7v6.7m5-6.7-1 6.7"
+                  stroke="currentColor" stroke-width="1.05" stroke-linecap="round" opacity=".7"/>
+            <!-- Wheels -->
+            <circle class="cart-wheel" cx="12.2" cy="25.4" r="1.55" stroke="currentColor" stroke-width="1.5"/>
+            <circle class="cart-wheel" cx="22.3" cy="25.4" r="1.55" stroke="currentColor" stroke-width="1.5"/>
+            <path class="cart-spark" d="m27.3 4.1.35 1.05 1.05.35-1.05.35-.35 1.05-.35-1.05-1.05-.35 1.05-.35.35-1.05Z"
+                  fill="currentColor"/>
+          </svg>
+          <span class="cart-count" id="cartCount" aria-hidden="true">0</span>
+        </button>
+
+        <a href="#/contact/enquiry" class="btn btn-primary nav-cta">Order now</a>
+      </div>
 
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
         <span class="bar" aria-hidden="true"></span>
@@ -136,9 +195,9 @@
       </nav>
       <div class="mobile-menu-foot">
         <a href="#/contact/enquiry" class="btn btn-primary m-cta">Order now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-        <!-- PLACEHOLDER: replace 2348000000000 with your WhatsApp number (country code, no + or spaces) -->
-        <a class="m-whatsapp" href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> +234 800 000 0000
+        
+        <a class="m-whatsapp" href="https://wa.me/2348140147001" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> +234 814 014 7001
         </a>
         <p class="m-tagline">Freshly made for you</p>
       </div>
@@ -154,12 +213,14 @@
       <section class="hero hero-cream" id="hero" aria-label="Welcome">
         <!--Hero-slideshow-->
         <div class="hero-bg-slideshow" aria-hidden="true">
-          <div class="hero-bg-slide is-active" data-slide="0" style="--img:url('https://i.pinimg.com/736x/c7/a1/cc/c7a1ccf36c49f18f60973d30f7b500fc.jpg')"></div>
-          <div class="hero-bg-slide" data-slide="1" style="--img:url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1600&h=1200&q=80')"></div>
-          <div class="hero-bg-slide" data-slide="2" style="--img:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&h=1200&q=80')"></div>
-          <div class="hero-bg-slide" data-slide="3" style="--img:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&h=1200&q=80')"></div>
-          <div class="hero-bg-slide" data-slide="4" style="--img:url('https://i.pinimg.com/736x/c4/de/ae/c4deaefd7fb3aabccdc663957f53f6a6.jpg')"></div>
-          <div class="hero-bg-slide" data-slide="5" style="--img:url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1600&h=1200&q=80')"></div>
+          <div class="hero-bg-slide is-active" data-slide="0" style="--img:url('images/4b2b751d-a744-4fc9-ba9b-bf6e83f38cc9.jfif')"></div>
+          <div class="hero-bg-slide" data-slide="1" data-image="images/d65ef49f-02d8-46a1-a45a-87b39c91fe63.jfif"></div>
+          <div class="hero-bg-slide" data-slide="2" data-image="images/936f5ffd-2f10-4976-81f6-2e6171a277cc.jfif"></div>
+          <div class="hero-bg-slide" data-slide="3" data-image="images/fe0ef157-c60d-431e-a313-bf64165f16e3.jfif"></div>
+          <div class="hero-bg-slide" data-slide="4" data-image="images/03576ffa-3400-41b5-8768-d7f59f54119c.jfif"></div>
+          <div class="hero-bg-slide" data-slide="5" data-image="images/homemade ice-cream.jfif"></div>
+          <div class="hero-bg-slide" data-slide="6" data-image="images/cakee.jfif"></div>
+          <div class="hero-bg-slide" data-slide="7" data-image="images/beaa5c3b-98d2-4a86-a88c-eed4d18eda68.jfif"></div>
         </div>
         <div class="hero-bg-overlay" aria-hidden="true"></div>
 
@@ -170,7 +231,7 @@
               <span class="hero-status-pill"><span class="hero-status-dot" aria-hidden="true"></span><span><span id="heroGreeting">Good day</span> · <span id="heroState">Open<span class="hero-status-more"> for orders</span></span></span></span>
               <span class="hero-status-time" id="heroTime">Lagos · WAT</span>
             </div>
-            <h1>Freshly made <em>for you.</em></h1>
+            <h1 class="hero-headline">Freshly made <em>for you.</em></h1>
             <p class="lead">Custom celebration cakes, golden loaves and buttery pastries — baked from scratch every morning, delivered with care.</p>
             <div class="btn-row hero-actions">
               <a href="#/menu" class="btn btn-primary">Explore the menu <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
@@ -217,8 +278,7 @@
             <h2 id="home-craft">Freshly made, every <em class="gold">single morning</em></h2>
             <p>Our bakers arrive before dawn so that when the doors open, the shelves glow with loaves still warm from the oven and pastries layered to order. We mix in small batches, shape by hand, and let time do its work.</p>
             <ul class="dot-list">
-              <li>Quality flour and real butter, never margarine</li>
-              <li>No preservatives, no artificial flavourings</li>
+              <li>Quality flour quality margarine and butter</li>
               <li>Seasonal menus that follow the harvest</li>
               <li>Custom cakes welcomed with 3 days' notice</li>
             </ul>
@@ -230,7 +290,7 @@
       <section class="stats-band" aria-label="Bakery numbers">
         <div class="container stats">
           <div class="stat">
-            <strong><span class="stat-num" data-target="10" data-suffix="+">0</span></strong>
+            <strong><span class="stat-num" data-target="20" data-suffix="+">0</span></strong>
             <span>Years baking</span>
           </div>
           <div class="stat">
@@ -242,7 +302,7 @@
             <span>Wholesale partners</span>
           </div>
           <div class="stat">
-            <strong><span class="stat-num" data-target="300" data-suffix="+">0</span></strong>
+            <strong><span class="stat-num" data-target="100" data-suffix="+">0</span></strong>
             <span>Academy graduates</span>
           </div>
         </div>
@@ -257,16 +317,37 @@
           </div>
           <div class="grid grid-3">
             <article class="card item-card">
-              <div class="item-media"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=640&h=480&q=80" alt="Vanilla bean celebration cake with buttercream" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cakes</span></div>
-              <div class="item-body"><h3>Vanilla Bean Celebration</h3><p>Three layers of light vanilla sponge with silky Swiss meringue buttercream.</p><div class="item-foot"><span class="price"><small>from</small>₦25,000</span><button class="mini-btn" type="button" data-order="Vanilla Bean Celebration Cake">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/936f5ffd-2f10-4976-81f6-2e6171a277cc (1).jfif" alt="Vanilla bean celebration cake with buttercream" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cakes</span>
+              </div>
+              <div class="item-body">
+                <h3>Vanilla Cake</h3>
+                <p>Three layers of light vanilla sponge paired with silky Swiss meringue buttercream, finished with vibrant piped borders and a handcrafted centerpiece rose.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
             </article>
             <article class="card item-card">
-              <div class="item-media"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=640&h=480&q=80" alt="Crusty sourdough loaf sliced open" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div>
-              <div class="item-body"><h3>Country Sourdough</h3><p>Slow-fermented for 24 hours: crackling crust, open crumb and a gentle tang.</p><div class="item-foot"><span class="price">₦4,500</span><button class="mini-btn" type="button" data-order="Country Sourdough">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/white bread.jfif" alt="Crusty sourdough loaf sliced open" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Bread</span>
+              </div>
+              <div class="item-body">
+                <h3>Golden Mini Loaves</h3>
+                <p>Freshly baked, golden mini loaves featuring a remarkably soft, pillowy crumb and a smooth, classic finish.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
             </article>
             <article class="card item-card">
-              <div class="item-media"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=640&h=480&q=80" alt="Butter croissants cooling on a rack" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastries</span></div>
-              <div class="item-body"><h3>All-Butter Croissant</h3><p>Laminated by hand over three days for shatteringly crisp layers.</p><div class="item-foot"><span class="price">₦2,200</span><button class="mini-btn" type="button" data-order="All-Butter Croissant">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/cinammon rolls 2.jfif" alt="Cinnamon rolls cooling on a rack" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastries</span>
+              </div>
+              <div class="item-body">
+                <h3>Cinnamon Rolls</h3>
+                <p>Soft, pillowy sweet dough swirled with a rich, fragrant cinnamon-sugar filling and baked to a perfect golden brown.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
             </article>
           </div>
           <p class="center" style="text-align:center;margin-top:3rem"><a href="#/menu" class="btn btn-ghost">See the full menu</a></p>
@@ -292,10 +373,10 @@
           <div class="carousel" id="testimonials" role="region" aria-roledescription="carousel" aria-label="Customer testimonials">
             <div class="carousel-viewport">
               <div class="carousel-track" id="tTrack">
-                <figure class="t-slide" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The cake was even more beautiful than the picture I sent. Every guest asked who made it — and it tasted incredible.”</blockquote><figcaption class="who">Adaeze O.<span>Birthday cake customer</span></figcaption></figure>
-                <figure class="t-slide" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“They catered our company's end-of-year party for 120 people. Food arrived hot, on time, and nothing was left over.”</blockquote><figcaption class="who">Tunde A.<span>Corporate catering client</span></figcaption></figure>
-                <figure class="t-slide" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Our supermarket bread supply has never been this consistent. Deliveries land before we open, every day.”</blockquote><figcaption class="who">Mrs. Okafor<span>Wholesale partner</span></figcaption></figure>
-                <figure class="t-slide" style="margin:0"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“I joined the academy knowing nothing. Three months later I'm taking cake orders from my own kitchen.”</blockquote><figcaption class="who">Blessing E.<span>Academy graduate</span></figcaption></figure>
+                <figure class="t-slide" style="margin:0"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The cakes and bread were even more scrumptious and stunning than I anticipated. Every bite was a delight. The bread is one of a kind, it's fluffy, creamy and I highly recommend it to bread lovers and non bread lovers the cakes are almost as delicious as the food”</blockquote><figcaption class="who">Mosunmola O.<span>Frequent customer</span></figcaption></figure>
+                <figure class="t-slide" style="margin:0"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“They catered our company's end-of-year party for 120 people. Food arrived hot, on time, and nothing was left over.”</blockquote><figcaption class="who">Tunde A.<span>Corporate catering client</span></figcaption></figure>
+                <figure class="t-slide" style="margin:0"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Our supermarket bread supply has never been this consistent. Deliveries land before we open, every day.”</blockquote><figcaption class="who">Mrs. Okafor<span>Wholesale partner</span></figcaption></figure>
+                <figure class="t-slide" style="margin:0"><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“I joined the academy knowing nothing. Three months later I'm taking cake orders from my own kitchen.”</blockquote><figcaption class="who">Blessing E.<span>Academy graduate</span></figcaption></figure>
               </div>
             </div>
             <div class="carousel-nav">
@@ -315,15 +396,25 @@
             <h2 id="home-gallery">A little <em class="gold">inspiration</em></h2>
             <p>Tap any photo to view it larger.</p>
           </div>
-          <div class="gallery" id="gallery">
-            <button class="g-item tall" type="button" data-full="https://i.pinimg.com/1200x/35/69/f7/3569f763ad1322a45fb451dda10e39de.jpg" data-caption="Hand-piped wedding cake"><img src="https://i.pinimg.com/1200x/35/69/f7/3569f763ad1322a45fb451dda10e39de.jpg" alt="Hand-piped wedding cake" loading="lazy" decoding="async"></button>
-            <button class="g-item" type="button" data-full="https://i.pinimg.com/736x/8c/3e/00/8c3e00db08c7fd2c994c6c3ced7b6aeb.jpg" data-caption="Fresh white bread"><img src="https://i.pinimg.com/736x/8c/3e/00/8c3e00db08c7fd2c994c6c3ced7b6aeb.jpg" alt="Fresh white bread" loading="lazy" decoding="async"></button>
-            <button class="g-item wide" type="button" data-full="https://i.pinimg.com/736x/fa/b3/4a/fab34acd779570955716aeeda49623bc.jpg" data-caption="Donut box"><img src="https://i.pinimg.com/736x/fa/b3/4a/fab34acd779570955716aeeda49623bc.jpg" alt="Donut box" loading="lazy" decoding="async"></button>
-            <button class="g-item" type="button" data-full="https://i.pinimg.com/1200x/bd/5e/fc/bd5efcd4de68d9b1818433c88961398e.jpg" data-caption="Box of decorated cupcakes"><img src="https://i.pinimg.com/1200x/bd/5e/fc/bd5efcd4de68d9b1818433c88961398e.jpg" alt="Box of decorated cupcakes" loading="lazy" decoding="async"></button>
-            <button class="g-item" type="button" data-full="https://i.pinimg.com/1200x/06/5b/0a/065b0a51fdfd25018f9417c75740f2ee.jpg" data-caption="Chocolate drip cake"><img src="https://i.pinimg.com/1200x/06/5b/0a/065b0a51fdfd25018f9417c75740f2ee.jpg" alt="Chocolate drip cake" loading="lazy" decoding="async"></button>
-            <button class="g-item tall" type="button" data-full="https://i.pinimg.com/736x/c1/a9/32/c1a9320edaeac652307ad3ffb6a46096.jpg" data-caption="Catering dessert table"><img src="https://i.pinimg.com/736x/c1/a9/32/c1a9320edaeac652307ad3ffb6a46096.jpg" alt="Catering dessert table" loading="lazy" decoding="async"></button>
-            <button class="g-item" type="button" data-full="https://i.pinimg.com/736x/c2/8f/f9/c28ff944d3aa18049c51dc6f0b07ef64.jpg" data-caption=" Cookie trays"><img src="https://i.pinimg.com/736x/c2/8f/f9/c28ff944d3aa18049c51dc6f0b07ef64.jpg" alt="Morning bakery trays" loading="lazy" decoding="async"></button>
-            <button class="g-item wide" type="button" data-full="https://i.pinimg.com/1200x/7b/9f/ea/7b9feacb65b38c6c31a34f0a43d22143.jpg" data-caption="Rock buns"><img src="https://i.pinimg.com/1200x/7b/9f/ea/7b9feacb65b38c6c31a34f0a43d22143.jpg" alt="Rock buns" loading="lazy" decoding="async"></button>
+                    <div class="gallery" id="gallery">
+            <button class="g-item tall" type="button" data-full="images/img.jfif" data-caption="Hand-piped wedding cake"><img src="images/img.jfif" alt="Hand-piped wedding cake" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/672f6a94-c8b7-4d24-b5c7-06fa7d67e362.jfif" data-caption="Hot cross buns"><img src="images/672f6a94-c8b7-4d24-b5c7-06fa7d67e362.jfif" alt="Hot cross buns" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/d3df3ded-bdea-42f0-b732-e9039bdd1f0f.jfif" data-caption="Donut box"><img src="images/d3df3ded-bdea-42f0-b732-e9039bdd1f0f.jfif" alt="Assorted donuts in a gift box" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/03576ffa-3400-41b5-8768-d7f59f54119c.jfif" data-caption="Buttercream filled cakes"><img src="images/03576ffa-3400-41b5-8768-d7f59f54119c.jfif" alt="Buttercream filled cakes" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/4b2b751d-a744-4fc9-ba9b-bf6e83f38cc9.jfif" data-caption="Cinnamon rolls"><img src="images/4b2b751d-a744-4fc9-ba9b-bf6e83f38cc9.jfif" alt="Cinnamon rolls" loading="lazy" decoding="async"></button>
+            <button class="g-item tall" type="button" data-full="images/55af3418-06bf-44df-b6a9-ec8fe7302f75.jfif" data-caption="Catering food basket"><img src="images/55af3418-06bf-44df-b6a9-ec8fe7302f75.jfif" alt="Catering food basket" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/e14eed7a-e314-4418-a82e-e7b0679bf7f0.jfif" data-caption="Jam donuts"><img src="images/e14eed7a-e314-4418-a82e-e7b0679bf7f0.jfif" alt="Jam donuts" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/fe0ef157-c60d-431e-a313-bf64165f16e3.jfif" data-caption="Sesame seed buns"><img src="images/fe0ef157-c60d-431e-a313-bf64165f16e3.jfif" alt="Sesame seed buns" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/bread.jfif" data-caption="Fresh white bread"><img src="images/bread.jfif" alt="Fresh white bread" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/cupcake box.jfif" data-caption="Cupcake box"><img src="images/cupcake box.jfif" alt="Cupcake box" loading="lazy" decoding="async"></button>
+            <button class="g-item tall" type="button" data-full="images/homemade ice-cream.jfif" data-caption="Homemade Ice cream"><img src="images/homemade ice-cream.jfif" alt="Homemade Ice cream" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/choco donuts.jfif" data-caption="Chocolate filled donuts"><img src="images/choco donuts.jfif" alt="Chocolate filled donuts" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/fruit parfait.jfif" data-caption="Fruit parfait"><img src="images/fruit parfait.jfif" alt="Vanilla cupcakes with frosting" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/455a4eb7-1d49-4f47-a839-6be645fd1a2c.jfif" data-caption="Castle cake"><img src="images/455a4eb7-1d49-4f47-a839-6be645fd1a2c.jfif" alt="Chocolate chip cookies" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/cakee.jfif" data-caption="Event cake"><img src="images/cakee.jfif" alt="Event cake" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/birthday cake.jfif" data-caption="Birthday cake"><img src="images/birthday cake.jfif" alt="Birthday cake" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/birthday cake 2.jfif" data-caption="Birthday cake "><img src="images/birthday cake 2.jfif" alt="Birthday cake 2" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/cinammon rolls 2.jfif" data-caption="Cinammon rolls"><img src="images/cinammon rolls 2.jfif" alt="Cinammon rolls" loading="lazy" decoding="async"></button>
           </div>
         </div>
       </section>
@@ -347,12 +438,12 @@
               <h2 id="home-visit">Come and say <em class="gold">hello</em></h2>
             </div>
             <ul class="visit-facts">
-              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><div><strong>Address</strong><span>12 Sample Street, Ikeja, Lagos</span></div></li><!-- PLACEHOLDER address -->
-              <li><i class="fa-regular fa-clock" aria-hidden="true"></i><div><strong>Today</strong><span id="todayHours">7:00 AM – 7:00 PM</span></div></li>
-              <li><i class="fa-solid fa-phone" aria-hidden="true"></i><div><strong>Call us</strong><a href="tel:+2348000000000">+234 800 000 0000</a></div></li><!-- PLACEHOLDER phone -->
+              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><div><strong>Address</strong><span>5 Apple Street, Apeka Estate, Ikorodu, Lagos</span></div></li><!-- PLACEHOLDER address -->
+              <li><i class="fa-regular fa-clock" aria-hidden="true"></i><div><strong>Today</strong><span id="todayHours">8:00 AM – 6:00 PM</span></div></li>
+              <li><i class="fa-solid fa-phone" aria-hidden="true"></i><div><strong>Call us</strong><a href="tel:+2348140147001">+234 814 014 7001</a></div></li><!-- PLACEHOLDER phone -->
             </ul>
             <div class="btn-row">
-              <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ikeja,Lagos,Nigeria" target="_blank" rel="noopener noreferrer">Get directions <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i></a>
+              <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=5%20Apple%20Street%2C%20Off%20Shagamu%20Road%2C%20Apeka%20Estate%2C%20Ikorodu%2C%20Lagos%2C%20Nigeria" target="_blank" rel="noopener noreferrer">Get directions <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i></a>
               <a class="btn btn-ghost" href="#/contact/visit">See the map</a>
             </div>
           </div>
@@ -390,9 +481,9 @@
       <section class="section theme-light" aria-labelledby="about-story">
         <div class="container split">
           <div class="img-stack">
-            <img class="main" src="https://picsum.photos/seed/bnf-about1/800/1000" alt="Our head baker shaping dough by hand" loading="lazy" decoding="async" width="800" height="1000">
-            <img class="sub" src="https://picsum.photos/seed/bnf-about2/500/500" alt="A freshly decorated cake being finished" loading="lazy" decoding="async" width="500" height="500">
-            <div class="badge-float" aria-hidden="true"><span><b>10+</b>years of<br>baking</span></div>
+            <img class="main" src="images/birthday cake.jfif" alt="Our head baker shaping dough by hand" loading="lazy" decoding="async" width="800" height="700">
+            <!-- <img class="sub" src="images/03576ffa-3400-41b5-8768-d7f59f54119c.jfif" alt="A freshly decorated cake being finished" loading="lazy" decoding="async" width="1000" height="350"> -->
+            <div class="badge-float" aria-hidden="true"><span><b>20+</b>years of<br>baking</span></div>
           </div>
           <div>
             <p class="eyebrow">Since the very first loaf</p>
@@ -407,7 +498,7 @@
       <section class="stats-band" aria-label="Bakery numbers">
         <div class="container stats">
           <div class="stat">
-            <strong><span class="stat-num" data-target="10" data-suffix="+">0</span></strong>
+            <strong><span class="stat-num" data-target="20" data-suffix="+">0</span></strong>
             <span>Years baking</span>
           </div>
           <div class="stat">
@@ -419,7 +510,7 @@
             <span>Wholesale partners</span>
           </div>
           <div class="stat">
-            <strong><span class="stat-num" data-target="300" data-suffix="+">0</span></strong>
+            <strong><span class="stat-num" data-target="100" data-suffix="+">0</span></strong>
             <span>Academy graduates</span>
           </div>
         </div>
@@ -456,23 +547,13 @@
             </div>
             <div class="tl-item" style="--i:3">
               <span class="tl-dot" aria-hidden="true"><span class="tl-dot-ring"></span></span>
-              <div class="tl-body"><div class="year">Baking Academy</div><p>We opened our doors to students, turning our kitchen into a classroom.</p></div>
+              <div class="tl-body"><div class="year">Baking Academy</div><p>We opened our doors to students, turning our kitchen into a classroom, making them grow as professional bakers and caterers
+                .</p></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section theme-dark" aria-labelledby="about-team">
-        <div class="container">
-          <div class="section-head center"><p class="eyebrow">The people</p><h2 id="about-team">Meet the <em class="gold">team</em></h2></div>
-          <div class="grid grid-4">
-            <article class="card team-card"><div class="avatar" aria-hidden="true">B</div><h3>Head Baker</h3><p>Founder &amp; cake designer</p></article>
-            <article class="card team-card"><div class="avatar" aria-hidden="true">P</div><h3>Pastry Chef</h3><p>Laminated doughs &amp; tarts</p></article>
-            <article class="card team-card"><div class="avatar" aria-hidden="true">C</div><h3>Catering Lead</h3><p>Menus, logistics &amp; service</p></article>
-            <article class="card team-card"><div class="avatar" aria-hidden="true">A</div><h3>Academy Instructor</h3><p>Training &amp; mentorship</p></article>
-          </div>
-        </div>
-      </section>
     </div>
 
     <!--Menu-page -->
@@ -507,23 +588,254 @@
             <button class="filter-btn" type="button" data-filter="pastries" aria-pressed="false">Pastries</button>
           </div>
           <div class="grid grid-3" id="menuGrid">
+            <!-- ============================================================
+                 HOW TO EDIT THE MENU
+                 Every product is one <article> card. To add one, copy a whole card and
+                 change ONLY these six things (everything else — the cart, the popup,
+                 the WhatsApp order — reads them from the card automatically):
+                   1. data-cat   → cakes | bread | pastries   (decides which filter shows it)
+                   2. img src    → your photo, e.g. images/vanilla-cake.jpg
+                   3. img alt    → a short description of the photo
+                   4. tag        → the small label on the photo
+                   5. <h3>       → the product name (this is the name sent in the order)
+                   6. <p>        → the description
+                 ============================================================ -->
             <!-- CAKES -->
-            <article class="card item-card menu-item" data-cat="cakes"><div class="item-media"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=640&h=480&q=80" alt="Vanilla bean celebration cake" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cake</span></div><div class="item-body"><h3>Vanilla Bean Celebration</h3><p>Light vanilla sponge, Swiss meringue buttercream, finished to your colour theme.</p><div class="item-foot"><span class="price"><small>from</small>₦25,000</span><button class="mini-btn" type="button" data-order="Vanilla Bean Celebration Cake">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="cakes"><div class="item-media"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=640&h=480&q=80" alt="Rich chocolate ganache drip cake" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cake</span></div><div class="item-body"><h3>Dark Chocolate Drip</h3><p>Moist cocoa sponge layered with dark ganache and a glossy chocolate drip.</p><div class="item-foot"><span class="price"><small>from</small>₦28,000</span><button class="mini-btn" type="button" data-order="Dark Chocolate Drip Cake">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="cakes"><div class="item-media"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=640&h=480&q=80" alt="Red velvet cake with cream cheese frosting" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cake</span></div><div class="item-body"><h3>Red Velvet Romance</h3><p>Classic red velvet with tangy cream cheese frosting. A wedding-table favourite.</p><div class="item-foot"><span class="price"><small>from</small>₦30,000</span><button class="mini-btn" type="button" data-order="Red Velvet Cake">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="cakes"><div class="item-media"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=640&h=480&q=80" alt="Multi-tier wedding cake with sugar flowers" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Cake</span></div><div class="item-body"><h3>Tiered Wedding Cake</h3><p>Two to five tiers, custom flavours per tier and hand-crafted sugar flowers. Includes a tasting.</p><div class="item-foot"><span class="price"><small>from</small>₦150,000</span><button class="mini-btn" type="button" data-order="Tiered Wedding Cake">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="cakes">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/936f5ffd-2f10-4976-81f6-2e6171a277cc (1).jfif" alt="Vanilla bean celebration cake" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cake</span>
+              </div>
+              <div class="item-body">
+                <h3>Vanilla Cake</h3>
+                <p>Three layers of light vanilla sponge paired with silky Swiss meringue buttercream, finished with vibrant piped borders and a handcrafted centerpiece rose.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="cakes">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/55af3418-06bf-44df-b6a9-ec8fe7302f75.jfif" alt="Golden Heart Celebration Cake" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cake</span>
+              </div>
+              <div class="item-body">
+                <h3>Golden Heart Celebration Cake</h3>
+                <p>A beautifully crafted, heart-shaped cake featuring intricate yellow basketweave texture, vibrant green and yellow piped rosettes, and a sprinkle of colorful stars.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="cakes">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/c7fb3124-60f8-4db6-aa95-6b102bf22159.jfif" alt="Classic Rose & Ribbon Celebration Cake" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cake</span>
+              </div>
+              <div class="item-body">
+                <h3>Classic Rose &amp; Ribbon Celebration Cake</h3>
+                <p>An elegantly designed round cake wrapped in textured cream buttercream, finished with a decorative green ribbon border and delicate pastel pink piped roses.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="cakes">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/c23177c4-7be3-4848-98de-2fc304d70917.jfif" alt="Golden Monarch Watercolor Birthday Cake" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cake</span>
+              </div>
+              <div class="item-body">
+                <h3>Golden Monarch Watercolor Birthday Cake</h3>
+                <p>A stunning round cake featuring a vibrant pink, purple, and gold watercolor buttercream finish, crowned with a gleaming gold "Happy Birthday" topper and delicate laser-cut butterflies.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="cakes">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/birthday cake.jfif" alt="Bright Smiley Face Birthday Cake" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cake</span>
+              </div>
+              <div class="item-body">
+                <h3>Bright Smiley Face Birthday Cake</h3>
+                <p>A charming round cake iced in smooth cream buttercream, bordered with alternating pink and green piped rosettes, and topped with a whimsical, hand-piped pink kitten centerpiece.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="cakes">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/d40e08e7-1fdb-4de5-a7cc-d553787281f2.jfif" alt="Classic Chocolate & Vanilla Swirl Cake" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cake</span>
+              </div>
+              <div class="item-body">
+                <h3>Classic Chocolate &amp; Vanilla Swirl Cake</h3>
+                <p>A delightful round cake with layers of rich chocolate and creamy vanilla, swirled together and finished with rich vanilla piped rosettes with green leaf details.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="cakes">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/8c2f2092-9ad6-41e8-93dc-d723d66c3c53.jfif" alt="Elegant Red Rose & Gold Birthday Cake" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cake</span>
+              </div>
+              <div class="item-body">
+                <h3>Elegant Red Rose &amp; Gold Birthday Cake</h3>
+                <p>A sophisticated round cake with a smooth white buttercream finish and a textured silver-grey top, elegantly adorned with vibrant red roses, an intricate gold glitter "Happy Birthday" sign, and a matching gold beaded base border.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="cakes">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/b152989e-8629-4ae9-8920-2a6f4eb2e96d.jfif" alt="Playful Pink Kitten Celebration Cake" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Cake</span>
+              </div>
+              <div class="item-body">
+                <h3>Playful Pink Kitten Celebration Cake</h3>
+                <p>A charming round cake iced in smooth cream buttercream, bordered with alternating pink and green piped rosettes, and topped with a whimsical, hand-piped pink kitten centerpiece.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
             <!-- BREAD -->
-            <article class="card item-card menu-item" data-cat="bread"><div class="item-media"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=640&h=480&q=80" alt="Soft sliced sandwich loaf" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div><div class="item-body"><h3>Soft Milk Loaf</h3><p>Our everyday sandwich loaf: pillowy, lightly sweet and perfect for toast.</p><div class="item-foot"><span class="price">₦2,500</span><button class="mini-btn" type="button" data-order="Soft Milk Loaf">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="bread"><div class="item-media"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=640&h=480&q=80" alt="Country sourdough loaf" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div><div class="item-body"><h3>Country Sourdough</h3><p>24-hour ferment, blistered crust, open crumb. Best with good butter.</p><div class="item-foot"><span class="price">₦4,500</span><button class="mini-btn" type="button" data-order="Country Sourdough">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="bread"><div class="item-media"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=640&h=480&q=80" alt="Whole wheat seeded loaf" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div><div class="item-body"><h3>Seeded Wholewheat</h3><p>Hearty wholewheat studded with sunflower, flax and sesame seeds.</p><div class="item-foot"><span class="price">₦3,800</span><button class="mini-btn" type="button" data-order="Seeded Wholewheat Loaf">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="bread"><div class="item-media"><img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=640&h=480&q=80" alt="Soft burger buns" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Bread</span></div><div class="item-body"><h3>Brioche Burger Buns</h3><p>Buttery, golden buns that hold up to the juiciest burger. Sold in packs of six.</p><div class="item-foot"><span class="price">₦3,000</span><button class="mini-btn" type="button" data-order="Brioche Burger Buns (pack of 6)">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="bread">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/white bread.jfif" alt="Golden Mini Loaves" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Bread</span>
+              </div>
+              <div class="item-body">
+                <h3>Golden Mini Loaves</h3>
+                <p>Freshly baked, golden mini loaves featuring a remarkably soft, pillowy crumb and a smooth, classic finish.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="bread">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/7ed79c97-f529-4fb3-9c72-71f41841e014.jfif" alt="Freshly Baked Brioche Rolls" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Bread</span>
+              </div>
+              <div class="item-body">
+                <h3>Freshly Baked Brioche Rolls</h3>
+                <p>A delightful assortment of golden, pull-apart brioche rolls, soft artisan bread loaves.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="bread">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/1edb6889-3164-413b-9b39-528d0b13988d.jfif" alt="Golden Bread Rolls" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Bread</span>
+              </div>
+              <div class="item-body">
+                <h3>Golden Bread Rolls</h3>
+                <p>Freshly baked mini loaves of exceptionally soft, pillowy sweet bread with a perfectly smooth, golden-brown crust.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="bread">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/bromatefree.jfif" alt="Bromate-Free Sweet Bread" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Bread</span>
+              </div>
+              <div class="item-body">
+                <h3>Bromate-Free Sweet Bread</h3>
+                <p>A soft, golden pull-apart loaf baked to pillowy perfection, packaged fresh and crafted completely bromate-free for a wholesome treat.. Sold in packs of six.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="bread">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/cinammonrollbread.jfif" alt="Golden Cinnamon Roll Pull-Apart Loaf" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Bread</span>
+              </div>
+              <div class="item-body">
+                <h3>Golden Cinnamon Roll Pull-Apart Loaf</h3>
+                <p>Soft, pillowy sweet dough beautifully swirled with a rich cinnamon-sugar filling, baked into a pull-apart starburst loaf with a perfectly golden crust.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
             <!-- PASTRIES -->
-            <article class="card item-card menu-item" data-cat="pastries"><div class="item-media"><img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=640&h=480&q=80" alt="Golden butter croissants" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastry</span></div><div class="item-body"><h3>All-Butter Croissant</h3><p>Hand-laminated over three days. Flaky, golden and unapologetically buttery.</p><div class="item-foot"><span class="price">₦2,200</span><button class="mini-btn" type="button" data-order="All-Butter Croissant">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="pastries"><div class="item-media"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=640&h=480&q=80" alt="Flaky meat pies" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastry</span></div><div class="item-body"><h3>Classic Meat Pie</h3><p>Flaky shortcrust filled with seasoned minced beef, potato and carrot.</p><div class="item-foot"><span class="price">₦1,500</span><button class="mini-btn" type="button" data-order="Classic Meat Pie">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="pastries"><div class="item-media"><img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?auto=format&fit=crop&w=640&h=480&q=80" alt="Fresh fruit tarts" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastry</span></div><div class="item-body"><h3>Fresh Fruit Tart</h3><p>Crisp sweet pastry, vanilla custard and glazed seasonal fruit.</p><div class="item-foot"><span class="price">₦2,800</span><button class="mini-btn" type="button" data-order="Fresh Fruit Tart">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
-            <article class="card item-card menu-item" data-cat="pastries"><div class="item-media"><img src="https://images.unsplash.com/photo-1612203985729-70726954388c?auto=format&fit=crop&w=640&h=480&q=80" alt="Cinnamon rolls with icing" loading="lazy" decoding="async" width="640" height="480"><span class="tag">Pastry</span></div><div class="item-body"><h3>Cinnamon Swirl Roll</h3><p>Soft, spiced and finished with a cream cheese glaze. Warm from the oven on weekends.</p><div class="item-foot"><span class="price">₦2,000</span><button class="mini-btn" type="button" data-order="Cinnamon Swirl Roll">Order <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div></article>
+            <article class="card item-card menu-item" data-cat="pastries">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/672f6a94-c8b7-4d24-b5c7-06fa7d67e362.jfif" alt="Hot Cross Buns" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastry</span>
+              </div>
+              <div class="item-body">
+                <h3>Hot Cross Buns</h3>
+                <p>Soft, pillowy sweet buns spiced to perfection, packed with juicy raisins, and finished with a traditional cross and a sticky glaze.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="pastries">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/choco donuts.jfif" alt="Chocolate-filled Powdered Doughnuts" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastry</span>
+              </div>
+              <div class="item-body">
+                <h3>Chocolate-filled Powdered Doughnuts</h3>
+                <p>Fluffy, sugar-dusted yeast doughnuts fried to golden perfection, generously piped with your choice of silky pastry cream.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="pastries">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/cinammon rolls 2.jfif" alt=" Cinnamon Swirl Buns" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastry</span>
+              </div>
+              <div class="item-body">
+                <h3> Cinnamon Swirl Buns</h3>
+                <p>Soft, golden-baked sweet rolls layered with a fragrant cinnamon swirl, offering a comforting, aromatic pull-apart texture.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="pastries">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/d3df3ded-bdea-42f0-b732-e9039bdd1f0f.jfif" alt="Classic Golden Doughnuts" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastry</span>
+              </div>
+              <div class="item-body">
+                <h3>Classic Golden Doughnuts</h3>
+                <p>Fluffy, yeast-raised ring doughnuts fried to a perfect golden brown, featuring a remarkably light, airy texture and a smooth, classic finish.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="pastries">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/e14eed7a-e314-4418-a82e-e7b0679bf7f0.jfif" alt="Classic Jelly-Filled Doughnuts" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastry</span>
+              </div>
+              <div class="item-body">
+                <h3>Classic Jelly-Filled Doughnuts</h3>
+                <p>Pillowy, golden yeast doughnuts fried to perfection, generously filled with a vibrant, sweet fruit jelly that peeks through the center.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="pastries">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/fe0ef157-c60d-431e-a313-bf64165f16e3.jfif" alt="Golden Sesame Seed Buns" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastry</span>
+              </div>
+              <div class="item-body">
+                <h3>Golden Sesame Seed Buns</h3>
+                <p>Soft, pillowy buns infused with the rich, nutty flavor of sesame seeds, perfect for a delightful morning treat.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="pastries">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/homemade ice-cream.jfif" alt="Golden Sesame Seed Buns" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastry</span>
+              </div>
+              <div class="item-body">
+                <h3>Gourmet Celebration Soft-Serve Ice cream Cups</h3>
+                <p>Creamy, indulgent soft-serve ice cream available in a variety of vibrant flavors, beautifully piled high and finished with colorful sprinkles, rich chocolate flakes, and sweet drizzles.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
+            <article class="card item-card menu-item" data-cat="pastries">
+              <div class="item-media">
+                <button class="item-open" type="button" data-view><img src="images/fruit parfait.jfif" alt="Fruit Parfait" loading="lazy" decoding="async" width="640" height="480"></button>
+                <span class="tag">Pastry</span>
+              </div>
+              <div class="item-body">
+                <h3>Fruit Parfait</h3>
+                <p>A refreshing layer of creamy yogurt or pudding layered with sweet tropical fruits and topped with a generous sprinkle of crisp toasted coconut flakes.</p>
+                <div class="item-foot"><button class="mini-btn item-details" type="button" data-view>View details</button></div>
+              </div>
+            </article>
           </div>
-          <p class="note">Prices are indicative and may vary with size, design and ingredients. Custom cakes need at least 3 days' notice (7 days for wedding cakes).</p><!-- PLACEHOLDER prices -->
+          <p class="note">Custom cakes need at least 3 days' notice (7 days for wedding cakes). We confirm details with you on WhatsApp.</p>
         </div>
       </section>
 
@@ -560,9 +872,8 @@
         <div class="ring r2" aria-hidden="true"></div>
         <div class="container menu-hero-grid catering-hero-grid">
           <figure class="menu-hero-media catering-hero-media">
-            <!-- Catering hero photo — replace URL here anytime -->
             <img
-              src="https://i.pinimg.com/1200x/83/9c/96/839c96befa98396ac196365b952ecd54.jpg"
+              src="images/0dd147ff-94ad-4966-a02a-1cb8738dace4.jfif"
               alt="Catered event table with plated dishes and dessert"
               width="1200" height="900"
               loading="eager" decoding="async">
@@ -583,17 +894,54 @@
             <p>Our catering team handles the food so you can enjoy your own event. We cook, plate and serve complete menus — from small chops and party jollof to grilled mains and a dessert table that doubles as décor.</p>
             <ul class="checklist"><li>Small chops, finger foods and canapés</li><li>Rice dishes, swallows, grills and continental mains</li><li>Cakes, cupcakes, pastries and dessert tables</li><li>Drinks, setup, service staff and clean-up</li></ul>
           </div>
-          <img style="border-radius:var(--radius-l);box-shadow:var(--shadow-m);aspect-ratio:4/3;object-fit:cover;width:100%" src="https://i.pinimg.com/736x/c1/a9/32/c1a9320edaeac652307ad3ffb6a46096.jpg" alt="An elegantly arranged catering buffet" loading="lazy" decoding="async" width="900" height="700">
+          <img style="border-radius:var(--radius-l);box-shadow:var(--shadow-m);aspect-ratio:4/3;object-fit:cover;width:100%" src="images/07e6585b-bac0-4ec6-a0af-e628105344cd.jfif" alt="An elegantly arranged catering buffet" loading="lazy" decoding="async" width="900" height="700">
         </div>
       </section>
 
-      <section class="section theme-dark" aria-labelledby="cater-pack">
+      <section class="section theme-dark" aria-labelledby="cater-events">
         <div class="container">
-          <div class="section-head center"><p class="eyebrow">Packages</p><h2 id="cater-pack">Choose your <em class="gold">style of service</em></h2><p>Every package is customised to your menu, venue and budget. These are starting points.</p></div>
-          <div class="grid grid-3">
-            <article class="card package"><p class="guests">10 – 40 guests</p><h3>Intimate Gatherings</h3><p>Birthdays, house parties and small receptions.</p><ul class="checklist"><li>Choice of 2 mains &amp; 2 sides</li><li>Small chops platter</li><li>Custom celebration cake</li><li>Delivery &amp; setup</li></ul><a href="#/contact/enquiry" class="btn btn-ghost" data-topic="Catering quote">Request a quote</a></article>
-            <article class="card package featured"><span class="ribbon">Most popular</span><p class="guests">40 – 150 guests</p><h3>Signature Events</h3><p>Weddings, corporate dinners and milestone celebrations.</p><ul class="checklist"><li>Full multi-course menu</li><li>Live grill or carving station</li><li>Dessert table with cake</li><li>Service staff &amp; table styling</li></ul><a href="#/contact/enquiry" class="btn btn-primary" data-topic="Catering quote">Request a quote</a></article>
-            <article class="card package"><p class="guests">150+ guests</p><h3>Grand Celebrations</h3><p>Large weddings, conferences and festivals.</p><ul class="checklist"><li>Dedicated event manager</li><li>Multiple serving stations</li><li>Tiered cake &amp; pastry displays</li><li>On-site kitchen team</li></ul><a href="#/contact/enquiry" class="btn btn-ghost" data-topic="Catering quote">Request a quote</a></article>
+          <div class="section-head center">
+            <p class="eyebrow">Events we cater</p>
+            <h2 id="cater-events">Every occasion, <em class="gold">beautifully served</em></h2>
+            <p>From intimate birthdays to grand weddings — Bake N Frost handles full catering for all event types across Lagos.</p>
+          </div>
+          <div class="grid grid-3 event-grid">
+            <article class="card event-card">
+              <div class="icon-badge"><i class="fa-solid fa-ring" aria-hidden="true"></i></div>
+              <h3>Weddings</h3>
+              <p>Engagement parties, traditional &amp; white weddings, receptions and bridal showers — complete menus, cake tables and service staff.</p>
+            </article>
+            <article class="card event-card">
+              <div class="icon-badge"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i></div>
+              <h3>Birthdays &amp; milestones</h3>
+              <p>Kids' parties, surprise dinners, anniversaries and naming ceremonies with custom cakes and a full food spread.</p>
+            </article>
+            <article class="card event-card">
+              <div class="icon-badge"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+              <h3>Corporate &amp; office</h3>
+              <p>Boardroom lunches, product launches, end-of-year parties and staff appreciation events — reliable, on-time service.</p>
+            </article>
+            <article class="card event-card">
+              <div class="icon-badge"><i class="fa-solid fa-church" aria-hidden="true"></i></div>
+              <h3>Religious &amp; community</h3>
+              <p>Thanksgiving services, church programmes, association meetings and community gatherings of any size.</p>
+            </article>
+            <article class="card event-card">
+              <div class="icon-badge"><i class="fa-solid fa-house" aria-hidden="true"></i></div>
+              <h3>Private &amp; house parties</h3>
+              <p>Intimate dinners, house warmings and backyard celebrations with small chops, grills and dessert tables.</p>
+            </article>
+            <article class="card event-card">
+              <div class="icon-badge"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div>
+              <h3>All other events</h3>
+              <p>If people are gathering and need great food, we cater it. Tell us the brief — we'll build the menu around it.</p>
+            </article>
+          </div>
+          <div class="events-cta">
+            <a class="btn btn-primary btn-whatsapp-quote" href="https://wa.me/2348140147001?text=Good%20day%20Bake%20N%20Frost%21%0A%0AI%27d%20like%20to%20request%20a%20catering%20quote.%0AEvent%20date%3A%0AVenue%20/%20area%3A%0AGuest%20count%3A%0AMenu%20preferences%20or%20dietary%20needs%3A%0A%0APlease%20share%20options%20and%20pricing.%20Thank%20you%21" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Request a quote on WhatsApp
+            </a>
+            <p class="events-cta-note">Share your date, guest count and venue — we'll reply with a clear, itemised quote.</p>
           </div>
         </div>
       </section>
@@ -617,20 +965,48 @@
             </li>
             <li class="how-step">
               <span class="how-num" aria-hidden="true">03</span>
-              <h3>Tasting</h3>
-              <p>Sample your dishes and fine-tune before you commit.</p>
-            </li>
-            <li class="how-step">
-              <span class="how-num" aria-hidden="true">04</span>
               <h3>Event day</h3>
               <p>We arrive early, set up, serve and clear — stress-free.</p>
             </li>
           </ol>
           <div class="how-steps-cta">
-            <a href="#/contact/enquiry" class="btn btn-primary" data-topic="Catering quote">Request a catering quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="btn btn-primary btn-whatsapp-quote" href="https://wa.me/2348140147001?text=Good%20day%20Bake%20N%20Frost%21%0A%0AI%27d%20like%20to%20request%20a%20catering%20quote.%0AEvent%20date%3A%0AVenue%20/%20area%3A%0AGuest%20count%3A%0AMenu%20preferences%20or%20dietary%20needs%3A%0A%0APlease%20share%20options%20and%20pricing.%20Thank%20you%21" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Request a catering quote</a>
           </div>
         </div>
       </section>
+
+      <section class="section theme-dark" aria-labelledby="cater-gallery">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">From our events</p>
+            <h2 id="cater-gallery">Catering <em class="gold">in action</em></h2>
+            <p>A glimpse of tables, spreads and moments we've served.</p>
+          </div>
+          <div class="gallery gallery-page" id="gallery-catering">
+            <button class="g-item tall" type="button" data-full="images/d65ef49f-02d8-46a1-a45a-87b39c91fe63.jfif" data-caption="Premium Feast Gift Basket"><img src="images/d65ef49f-02d8-46a1-a45a-87b39c91fe63.jfif" alt="Premium Feast Gift Basket" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/987ced4d-00c2-499b-bedc-f8be7d0c946b.png" data-caption="Deluxe Combo Catering Box"><img src="images/987ced4d-00c2-499b-bedc-f8be7d0c946b.png" alt="Deluxe Combo Catering Box" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/b601f8ce-6774-4401-a6fb-1ee3badd8d1d.jfif" data-caption="Signature Nigerian Small Chops Platter"><img src="images/b601f8ce-6774-4401-a6fb-1ee3badd8d1d.jfif" alt="Signature Nigerian Small Chops Platter" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/bff7c864-89b4-4cc1-b5e2-7ceac25466a4.jfif" data-caption="Gourmet Vegetable Savoury Pancakes"><img src="images/bff7c864-89b4-4cc1-b5e2-7ceac25466a4.jfif" alt="Gourmet Vegetable Savoury Pancakes" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/assorted kabob.jfif" data-caption="Signature Sausage and Corndog Bites"><img src="images/assorted kabob.jfif" alt="Event cake" loading="lazy" decoding="async"></button>
+            <button class="g-item tall" type="button" data-full="images/a4685e7d-fbe3-4d91-9eae-af54cfa3f03c.jfif" data-caption="Assorted Bakery Pastry Platter"><img src="images/a4685e7d-fbe3-4d91-9eae-af54cfa3f03c.jfif" alt="Pastry display" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/cc916d99-bac0-4775-9c39-da43a8443a16.jfif" data-caption="Gourmet Stir-fry Spaghetti and Grilled Meat Combo "><img src="images/cc916d99-bac0-4775-9c39-da43a8443a16.jfif" alt="Gourmet Stir-fry Spaghetti and Grilled Meat Combo " loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/6c063e2c-14ea-4b28-997d-c296fd68fe9a.jfif" data-caption="Signature Jollof Pasta and Peppered Chicken Combo"><img src="images/6c063e2c-14ea-4b28-997d-c296fd68fe9a.jfif" alt="Signature Jollof Pasta and Peppered Chicken Combo" loading="lazy" decoding="async"></button>
+            <button class="g-item tall" type="button" data-full="images/a73a3708-53cc-46b2-90f6-0119bc0e630f.jfif" data-caption="Culinary Nigerian Event Buffet"><img src="images/a73a3708-53cc-46b2-90f6-0119bc0e630f.jfif" alt="Culinary Nigerian Event Buffet" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/b460391b-a33d-4820-9261-fc6b3f2cce87.jfif" data-caption="Classic Jollof Rice, Fried Plantain, and Peppered Chicken Pack"><img src="images/b460391b-a33d-4820-9261-fc6b3f2cce87.jfif" alt="Classic Jollof Rice, Fried Plantain, and Peppered Chicken Pack" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/f5fd2dc2-d5cd-417c-8901-9da589a0d25d.jfif" data-caption="Signature Swallow and Rich Local Soup Combo"><img src="images/f5fd2dc2-d5cd-417c-8901-9da589a0d25d.jfif" alt="Signature Swallow and Rich Local Soup Combo" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/3cb096cc-2199-4470-bd16-3e33d4a99634.jfif" data-caption="Creamy Pap topped with Coconut Flakes and Fresh Bean Cakes"><img src="images/3cb096cc-2199-4470-bd16-3e33d4a99634.jfif" alt="Creamy Pap topped with Coconut Flakes and Fresh Bean Cakes" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/428eba4b-6dd2-4c42-b48f-f8f2b3dcc76a.jfif" data-caption="Gourmet Fried Rice Combo Meals"><img src="images/428eba4b-6dd2-4c42-b48f-f8f2b3dcc76a.jfif" alt="Gourmet Fried Rice Combo Meals" loading="lazy" decoding="async"></button>
+            <button class="g-item tall" type="button" data-full="images/51d85ee9-ef5c-4ab2-ab01-1c0855336fcc.jfif" data-caption="Smoky Jollof Rice with Peppered Chicken, Moin Moin, and Salad"><img src="images/51d85ee9-ef5c-4ab2-ab01-1c0855336fcc.jfif" alt="Smoky Jollof Rice with Peppered Chicken, Moin Moin, and Salad" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/8f207c96-5231-4050-a6e8-e7a5778cb2cd.jfif" data-caption="Small Chops Snack Packs"><img src="images/8f207c96-5231-4050-a6e8-e7a5778cb2cd.jfif" alt="Small Chops Snack Packs" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/119ded66-2a18-4036-b49a-dcea4ddd7474.jfif" data-caption="Spicy Catfish Pepper Soup"><img src="images/119ded66-2a18-4036-b49a-dcea4ddd7474.jfif" alt="Spicy Catfish Pepper Soup" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/574aa2c0-5fb4-4392-9cb5-65bbde333dbe.jfif" data-caption="Signature Yellow Garri and Rich Efo Riro Combo"><img src="images/574aa2c0-5fb4-4392-9cb5-65bbde333dbe.jfif" alt="Signature Yellow Garri and Rich Efo Riro Combo" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/da849b4c-0b69-4b2f-962f-f422cf5eab4c.jfif" data-caption="Signature Fried Rice and Peppered Chicken Platter with Creamy Salad Combo"><img src="images/da849b4c-0b69-4b2f-962f-f422cf5eab4c.jfif" alt="Signature Fried Rice and Peppered Chicken Platter with Creamy Salad Combo" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/6e78dd56-8795-4107-9472-790a3b5a3dc5.jfif" data-caption="Signature Catering Size Smoky Party Jollof Rice Pot"><img src="images/6e78dd56-8795-4107-9472-790a3b5a3dc5.jfif" alt="Signature Catering Size Smoky Party Jollof Rice Pot" loading="lazy" decoding="async"></button>
+          </div>
+          
+        </div>
+      </section>
+
     </div>
 
     <!--Wholesale Page-->
@@ -659,12 +1035,16 @@
               <caption>Wholesale products (sample specification)</caption>
               <thead><tr><th scope="col">Product</th><th scope="col">Pack size</th><th scope="col">Minimum order</th><th scope="col">Lead time</th></tr></thead>
               <tbody>
-                <tr><td>Sliced sandwich bread</td><td>Single loaf (500 g)</td><td>50 loaves</td><td>Next morning</td></tr>
+                <tr><td>Sliced sandwich bread</td><td>Single loaf (500 g)</td><td>10 loaves</td><td>Next morning</td></tr>
                 <tr><td>Burger buns &amp; hot-dog rolls</td><td>Pack of 6</td><td>30 packs</td><td>Next morning</td></tr>
                 <tr><td>Agege &amp; tin bread</td><td>Single loaf</td><td>50 loaves</td><td>Next morning</td></tr>
-                <tr><td>Meat pies &amp; sausage rolls</td><td>Tray of 24</td><td>5 trays</td><td>24 hours</td></tr>
+                <tr><td>Meat pies &amp; sausage rolls</td><td>Tray of 12</td><td>5 trays</td><td>24 hours</td></tr>
                 <tr><td>Doughnuts &amp; buns</td><td>Box of 12</td><td>10 boxes</td><td>24 hours</td></tr>
                 <tr><td>Slab &amp; loaf cakes</td><td>Per slab</td><td>10 slabs</td><td>48 hours</td></tr>
+                <tr><td>Coconut bread</td><td>Single loaf (500g)</td><td>10 loaves</td><td>24 hours</td></tr>
+                <tr><td>Sardine bread</td><td>Single loaf (500g)</td><td>10 loaves</td><td>24 hours</td></tr>
+                <tr><td>Banana bread</td><td>Single loaf (500g)</td><td>10 loaves</td><td>24 hours</td></tr>
+                <tr><td>Chocolate bread</td><td>Single loaf (500g)</td><td>10 loaves</td><td>24 hours</td></tr>
               </tbody>
             </table>
           </div>
@@ -718,15 +1098,157 @@
       <section class="section theme-light" aria-labelledby="ac-courses">
         <div class="container">
           <div class="section-head center"><p class="eyebrow">Courses</p><h2 id="ac-courses">Find your <em class="gold">class</em></h2><p>Small groups, real ovens and plenty of practice. Every student takes home what they bake.</p></div>
-          <div class="grid grid-3">
-            <article class="card"><div class="icon-badge"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i></div><h3>Cake Baking Foundations</h3><p>Sponges, fillings, buttercream, levelling and basic decorating — everything you need to start.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>4 weeks</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦85,000</p></article>
-            <article class="card"><div class="icon-badge"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div><h3>Advanced Cake Decorating</h3><p>Piping, fondant, tiered structures, sugar flowers and modern drip &amp; textured finishes.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>3 weeks</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Intermediate</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦110,000</p></article>
-            <article class="card"><div class="icon-badge"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i></div><h3>Bread &amp; Pastry Mastery</h3><p>Yeast doughs, sourdough, laminated pastries, pies and rolls — the science and the craft.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>4 weeks</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦95,000</p></article>
-            <article class="card"><div class="icon-badge"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div><h3>Baking Business Bootcamp</h3><p>Costing, pricing, branding, sourcing and customer service for turning a skill into income.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 week</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦60,000</p></article>
-            <article class="card"><div class="icon-badge"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i></div><h3>Weekend Masterclass</h3><p>A single focused day on one skill — cupcakes, small chops, cookies or doughnuts.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 day</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦25,000</p></article>
-            <article class="card"><div class="icon-badge"><i class="fa-solid fa-people-group" aria-hidden="true"></i></div><h3>Private &amp; Group Training</h3><p>Tailored sessions for teams, schools, churches or friends — at our kitchen or yours.</p><div class="meta"><span><i class="fa-regular fa-calendar" aria-hidden="true"></i>Flexible</span><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Custom</span></div><p class="price" style="margin-top:1rem"><small>on</small>Request</p></article>
+          
+          <div class="course-filters" role="group" aria-label="Filter courses">
+            <button type="button" class="course-filter is-active" data-course-filter="all" aria-pressed="true">All courses</button>
+            <button type="button" class="course-filter" data-course-filter="baking" aria-pressed="false">Baking</button>
+            <button type="button" class="course-filter" data-course-filter="catering" aria-pressed="false">Catering &amp; décor</button>
           </div>
-          <p class="note">Fees and durations are placeholders — update with your real course details.</p><!-- PLACEHOLDER course fees -->
+          <div class="grid grid-3" id="academyCourseGrid">
+            <article class="card" data-course-cat="both"><div class="icon-badge"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i></div><h3>Cake Baking Foundation <span style="font-weight:500;font-size:.72em;opacity:.85">(Beginner &amp; Intermediary)</span></h3><p>Butter icing, royal icing, fondant techniques and cutters; sponge, marble, cup, fruit and chocolate cakes; mince pies, sausage rolls and spicy buns — a complete starter-to-intermediary path.</p><div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>3 months</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner / Intermediate</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦50,000</p><div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Cake Baking Foundation (Beginner &amp; Intermediary)" data-course-price="₦50,000" data-course-duration="3 months" data-course-desc="Butter icing, royal icing, fondant techniques and cutters; sponge, marble, cup, fruit and chocolate cakes; mince pies, sausage rolls and spicy buns — a complete starter-to-intermed">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></article>
+            <article class="card" data-course-cat="catering"><div class="icon-badge"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div><h3>Catering Course</h3><p>Ofada soup and assorted African dishes, continental favourites, rich fried rice and spicy jollof, plus party porridge — practical kitchen skills for events and everyday service.</p><div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 month</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦65,000</p><div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Catering Course" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Ofada soup and assorted African dishes, continental favourites, rich fried rice and spicy jollof, plus party porridge — practical kitchen skills for events and everyday service.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></article>
+                        <article class="card" data-course-cat="baking"><div class="icon-badge"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div><h3>Advanced Cake Baking / Decorating</h3><p>Plain sponge, marble Madeira, Dundee, Queen’s, wedding, carrot, orange, banana and chocolate cakes; royal icing, buttercream, fondant/sugar paste, chocolate icing techniques and sugar-paste cutters.</p><div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>2 months</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Intermediate</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦35,000</p><div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Advanced Cake Baking / Decorating" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Plain sponge, marble Madeira, Dundee, Queen’s, wedding, carrot, orange, banana and chocolate cakes; royal icing, buttercream, fondant/sugar paste, chocolate icing techniques and su">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></article>
+                        <article class="card course-switch" data-course-cat="baking" data-course-switch>
+              <div class="course-switch-track">
+                <div class="course-panel is-active" data-panel="0">
+                  <div class="icon-badge"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i></div>
+                  <h3>Bread Mastery</h3>
+                  <p>Yeast doughs, soft sandwich loaves, crusty sourdough and everyday rolls — the science of fermentation and the craft of shaping.</p>
+                  <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>3 weeks</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div>
+                  <p class="price" style="margin-top:1rem"><small>from</small>₦75,000</p>
+                </div>
+                <div class="course-panel" data-panel="1" hidden>
+                  <div class="icon-badge"><i class="fa-solid fa-house" aria-hidden="true"></i></div>
+                  <h3>Basic Home-Made Bread</h3>
+                  <p>A focused introduction to baking bread at home — simple doughs, everyday loaves and the confidence to bake from scratch in your own kitchen.</p>
+                  <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>2 weeks</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div>
+                  <p class="price" style="margin-top:1rem"><small>from</small>₦40,000</p>
+                </div>
+                <div class="course-panel" data-panel="2" hidden>
+                  <div class="icon-badge"><i class="fa-solid fa-bread-slice" aria-hidden="true"></i></div>
+                  <h3>Advance Regular &amp; Home-Made Bread</h3>
+                  <p>Fruit, coconut, milk, satis, corn, wheat, chocolate, tea, banana and chiffon breads — a fuller range of everyday and speciality loaves for the home or small bakery.</p>
+                  <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>2 weeks</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Advanced</span></div>
+                  <p class="price" style="margin-top:1rem"><small>from</small>₦100,000</p>
+                </div></div>
+              <button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Bread Mastery" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Yeast doughs, soft sandwich loaves, crusty sourdough and everyday rolls — the science of fermentation and the craft of shaping.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              <div class="course-switch-nav" role="group" aria-label="Switch bread course details">
+                <button type="button" class="course-arrow" data-dir="-1" aria-label="Previous course option"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                <div class="course-dots" aria-hidden="true">
+                  <span class="course-dot is-on"></span>
+                  <span class="course-dot"></span>
+                  <span class="course-dot"></span>
+                </div>
+                <button type="button" class="course-arrow" data-dir="1" aria-label="Next course option"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+              </div>
+              <p class="course-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> <span>Tap the arrows to see more bread courses</span></p>
+            </article>
+            <article class="card" data-course-cat="baking"><div class="icon-badge"><i class="fa-solid fa-cookie" aria-hidden="true"></i></div><h3>Snacks/Pastry Mastery</h3><p>Classic mince pie/chicken pie, classic fish rolls, sausage rolls, assorted doughnuts, puff puff, buns, spicy chin chin and scotch egg.</p><div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>3 weeks</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦10,000</p><div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Pastry Mastery" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Laminated doughs, croissants, pies, tarts and Danish pastries — layering, filling and finishing with confidence.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></article>
+            <article class="card" data-course-cat="both"><div class="icon-badge"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div><h3>Cake Baking / Decor &amp; Catering <span style="font-weight:500;font-size:.72em;opacity:.85">(Combined)</span></h3><p>Assorted cakes (fruit, cheese, carrot, Dundee, sponge, marble), decoration, butter / royal / fondant icing, African &amp; continental dishes and soups, plus pastry making.</p><div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>3 months</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦60,000</p><div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Cake Baking / Decor &amp; Catering (Combined)" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Assorted cakes (fruit, cheese, carrot, Dundee, sponge, marble), decoration, butter / royal / fondant icing, African &amp; continental dishes and soups, plus pastry making.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></article>
+            <article class="card" data-course-cat="baking"><div class="icon-badge"><i class="fa-solid fa-spray-can" aria-hidden="true"></i></div><h3>Finishing Class</h3><p>Comprehensive stencil work, airbrush techniques, and different sugar effects — the polish that takes decorated cakes further.</p><div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 month</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦25,000</p><div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Finishing Class" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Comprehensive stencil work, airbrush techniques, and different sugar effects — the polish that takes decorated cakes further.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></article>
+                        <article class="card" data-course-cat="baking"><div class="icon-badge"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i></div><h3>Cake Decoration Class</h3><p>Butter cream, royal and colour icing; frosting with round and star tips, combing method; fondant skills including sugar paste, colouring, marbling, embossing, polka dots, crimpling, patchwork, bows and cake staking.</p><div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 month</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦20,000</p><div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Cake Decoration Class" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Butter cream, royal and colour icing; frosting with round and star tips, combing method; fondant skills including sugar paste, colouring, marbling, embossing, polka dots, crimpling">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></article>
+            <article class="card" data-course-cat="baking"><div class="icon-badge"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i></div><h3>Special Baking Class</h3><p>Assorted cakes, creamed butter cakes, creamed sponge and plain cakes, flavoured cupcakes, spicy fruit cakes, marble Madeira, coconut, carrot/orange, chocolate, Dundee, cherry and rock cakes, plus fatless sponge villa bateaux with strawberry topping.</p><div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 month</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div><p class="price" style="margin-top:1rem"><small>from</small>₦25,000</p><div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Special Baking Class (I)" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Assorted cakes, creamed butter cakes, creamed sponge and plain cakes, flavoured cupcakes, spicy fruit cakes, marble Madeira, coconut, carrot/orange, chocolate, Dundee, cherry and r">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></article>
+                        <article class="card course-switch" data-course-cat="catering" data-course-switch>
+              <div class="course-switch-track">
+                <div class="course-panel is-active" data-panel="0">
+                  <div class="icon-badge"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+                  <h3>Basic Continental Dishes</h3>
+                  <p>Thyme &amp; lime chicken, pasta with turkey or tomatoes, Chinese chicken soup, chicken pancake, fried noodles with ginger, hot dog soup, bacon-onion turnover bites and prawn with yellow curry paste.</p>
+                  <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 month</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div>
+                  <p class="price" style="margin-top:1rem"><small>from</small>₦20,000</p>
+                </div>
+                <div class="course-panel" data-panel="1" hidden>
+                  <div class="icon-badge"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+                  <h3>Advance Continental Class</h3>
+                  <p>A deeper continental kitchen track — richer sauces, fuller menus and more polished plating for events and professional service.</p>
+                  <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>2 months</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Advanced</span></div>
+                  <p class="price" style="margin-top:1rem"><small>from</small>₦50,000</p>
+                </div>
+              </div>
+              <button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Basic Continental Dishes" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Thyme &amp; lime chicken, pasta with turkey or tomatoes, Chinese chicken soup, chicken pancake, fried noodles with ginger, hot dog soup, bacon-onion turnover bites and prawn with y">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              <div class="course-switch-nav" role="group" aria-label="Switch continental course details">
+                <button type="button" class="course-arrow" data-dir="-1" aria-label="Previous course option"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                <div class="course-dots" aria-hidden="true">
+                  <span class="course-dot is-on"></span>
+                  <span class="course-dot"></span>
+                </div>
+                <button type="button" class="course-arrow" data-dir="1" aria-label="Next course option"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+              </div>
+              <p class="course-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> <span>Tap the arrows to see the advance continental class</span></p>
+            </article>
+            <article class="card" data-course-cat="baking">
+              <div class="icon-badge"><i class="fa-solid fa-apple-whole" aria-hidden="true"></i></div>
+              <h3>Fruit N Basket</h3>
+              <p>Orange, kola nuts, strawberry, banana, carrot, plantain, apple and more — shaped and finished from icing sugar for display and celebration pieces.</p>
+              <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 week</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div>
+              <p class="price" style="margin-top:1rem"><small>from</small>₦5,500</p>
+              <div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Fruit N Basket" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Orange, kola nuts, strawberry, banana, carrot, plantain, apple and more shaped from icing sugar.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+            </article>
+            <article class="card" data-course-cat="baking">
+              <div class="icon-badge"><i class="fa-solid fa-spa" aria-hidden="true"></i></div>
+              <h3>Sugar Craft Class</h3>
+              <p>Sugar flowers (lily, rose, arum, sunflower and more), sugar house, sugar fruit craft, fabric-effect cake décor (aso-oke, lace damask, satin) and free-standing piece-craft including framework.</p>
+              <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>3 weeks</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Intermediate</span></div>
+              <p class="price" style="margin-top:1rem"><small>from</small>₦20,500</p>
+              <div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Sugar Craft Class" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Sugar flowers, sugar house, sugar fruit craft, fabric-effect décor and free-standing piece-craft.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+            </article>
+            <article class="card" data-course-cat="baking">
+              <div class="icon-badge"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+              <h3>Cake Décor</h3>
+              <p>Air brushing, painting, mat and stencil work — surface decoration techniques for polished, professional cake finishes.</p>
+              <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 month</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div>
+              <p class="price" style="margin-top:1rem"><small>from</small>₦20,000</p>
+              <div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Cake Décor" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Air brushing, painting, mat and stencil work for professional cake finishes.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+            </article>
+            <article class="card" data-course-cat="catering">
+              <div class="icon-badge"><i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i></div>
+              <h3>Event / Hall Decoration</h3>
+              <p>Balloon decoration, fabric décor, light décor and ribbon décor — styling for halls and event spaces to match your celebration.</p>
+              <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 month</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div>
+              <p class="price" style="margin-top:1rem"><small>from</small>₦65,000</p>
+              <div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Event / Hall Decoration" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Balloon, fabric, light and ribbon décor for halls and event spaces.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+            </article>
+            <article class="card course-switch" data-course-switch data-course-cat="catering">
+              <div class="course-switch-track">
+                <div class="course-panel is-active" data-panel="0">
+                  <div class="icon-badge"><i class="fa-solid fa-martini-glass-citrus" aria-hidden="true"></i></div>
+                  <h3>Basic Cocktail Drink Class</h3>
+                  <p>Chapman, sunrise mint, sunset, fruit punch, orange, and carrot/ginger frappe — foundational mocktail and cocktail drink skills for parties and service.</p>
+                  <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 week</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Beginner</span></div>
+                  <p class="price" style="margin-top:1rem"><small>from</small>₦6,000</p>
+                  <div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Basic Cocktail Drink Class" data-course-price="₦6,000" data-course-duration="1 week" data-course-desc="Chapman, sunrise mint, sunset, fruit punch, orange and carrot/ginger frappe.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+                </div>
+                <div class="course-panel" data-panel="1" hidden>
+                  <div class="icon-badge"><i class="fa-solid fa-martini-glass" aria-hidden="true"></i></div>
+                  <h3>Advance Cocktail Drink Class</h3>
+                  <p>Chapman, sunset, sunrise, ginger cola, fruit punch, tropical delight, mango frappe, pineapple-orange frappe, iced mocha, tomato-apple-ginger punch and Moroccan mint tea.</p>
+                  <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>2 weeks</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>Advanced</span></div>
+                  <p class="price" style="margin-top:1rem"><small>from</small>₦13,500</p>
+                  <div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Advance Cocktail Drink Class" data-course-price="₦13,500" data-course-duration="2 weeks" data-course-desc="Expanded cocktail and mocktail range including frappes, iced mocha and Moroccan mint tea.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+                </div>
+              </div>
+              <div class="course-switch-nav" role="group" aria-label="Switch cocktail course details">
+                <button type="button" class="course-arrow" data-dir="-1" aria-label="Previous course option"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                <div class="course-dots" aria-hidden="true">
+                  <span class="course-dot is-on"></span>
+                  <span class="course-dot"></span>
+                </div>
+                <button type="button" class="course-arrow" data-dir="1" aria-label="Next course option"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+              </div>
+              <p class="course-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> <span>Tap the arrows for the advance cocktail class</span></p>
+            </article>
+
+            <article class="card" data-course-cat="baking">
+              <div class="icon-badge"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+              <h3>Modelling Class</h3>
+              <p>Human modelling, male and in english dress/attire, fabric effect, animal modelling, teddy bears, rabbits, fish all from iceing sugar.</p>
+              <div class="meta"><!-- Course duration retained for later use: <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>1 month</span> --><span><i class="fa-solid fa-signal" aria-hidden="true"></i>All levels</span></div>
+              <p class="price" style="margin-top:1rem"><small>from</small>₦6500</p>
+              <div class="course-actions"><button type="button" class="mini-btn course-enquire" data-enquire-course data-course-name="Cake Décor" data-course-price="₦65,000" data-course-duration="1 month" data-course-desc="Air brushing, painting, mat and stencil work for professional cake finishes.">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+            </article>
+
+
+          </div><!-- PLACEHOLDER course fees -->
         </div>
       </section>
 
@@ -752,6 +1274,27 @@
           </div>
         </div>
       </section>
+    
+      <section class="section theme-dark" aria-labelledby="academy-gallery">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">In the kitchen</p>
+            <h2 id="academy-gallery">Learning by <em class="gold">doing</em></h2>
+            <p>Hands-on sessions, real ovens and graduates who leave ready to bake.</p>
+          </div>
+          <div class="gallery gallery-page" id="gallery-academy">
+            <button class="g-item tall" type="button" data-full="images/ac60e727-abac-421d-a9da-82fca83849d1.jfif" data-caption="Football-themed birthday Cake"><img src="images/ac60e727-abac-421d-a9da-82fca83849d1.jfif" alt="Hands-on baking class" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/3e6d65dc-63d4-4b97-8859-0a7955d37536.jfif" data-caption="Sugar voated Doughnuts"><img src="images/3e6d65dc-63d4-4b97-8859-0a7955d37536.jfif" alt="Fresh loaves from class" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/4b3d7cd8-7a28-4067-aed6-b70409fd7bc0.jfif" data-caption="Graduation Celebration Cake"><img src="images/4b3d7cd8-7a28-4067-aed6-b70409fd7bc0.jfif" alt="Working bakery kitchen" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/0a239490-7f0a-4a50-9ce1-dd10a88922a7.jfif" data-caption="Elegant Red Ruffles & Butterflies Cake"><img src="images/0a239490-7f0a-4a50-9ce1-dd10a88922a7.jfif" alt="Student cupcakes" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/cc916d99-bac0-4775-9c39-da43a8443a16.jfif" data-caption="Savory Stir-Fried Spaghetti with Glazed Chicken"><img src="images/cc916d99-bac0-4775-9c39-da43a8443a16.jfif" alt="Croissants from class" loading="lazy" decoding="async"></button>
+            <button class="g-item tall" type="button" data-full="images/b93e416a-0855-4e69-b5fb-bf4feb880708.jfif" data-caption="Classic Fish rolls"><img src="images/b93e416a-0855-4e69-b5fb-bf4feb880708.jfif" alt="Cake decorating class" loading="lazy" decoding="async"></button>
+            <button class="g-item wide" type="button" data-full="images/e2d02135-03c3-45f1-83f5-1d3c3c91ec49.jfif" data-caption="Pink Heart-shaped Ribbon styled Birthday Cake"><img src="images/e2d02135-03c3-45f1-83f5-1d3c3c91ec49.jfif" alt="Cookies from class" loading="lazy" decoding="async"></button>
+            <button class="g-item" type="button" data-full="images/18de13a7-c4a7-4101-953b-99796e2c5013.jfif" data-caption="Savory Stir-Fried Spaghetti with Sausage & Mixed Vegetables"><img src="images/18de13a7-c4a7-4101-953b-99796e2c5013.jfif" alt="Mixing and measuring" loading="lazy" decoding="async"></button>
+          </div>
+        </div>
+      </section>
+
     </div>
 
     <!--Contact-page-->
@@ -766,7 +1309,7 @@
             <p class="menu-hero-lead">Orders, quotes, partnerships or a quick question — drop by, call, or write. We reply as soon as possible.</p>
             <div class="btn-row" style="margin-top:1.5rem">
               <a href="#enquiry" class="btn btn-primary">Send an enquiry <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-              <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">WhatsApp us</a>
+              <a href="https://wa.me/2348140147001" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">WhatsApp us</a>
             </div>
           </div>
           <figure class="menu-hero-media contact-hero-media">
@@ -787,19 +1330,19 @@
             <p class="eyebrow">Come and visit</p>
             <h2 id="visit-title" style="font-size:clamp(2.2rem,5vw,3.3rem)">Find us, call us, or <em class="gold">drop by</em></h2>
             <ul class="contact-list">
-              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><div><strong>Visit the bakery</strong><span>12 Sample Street, Ikeja, Lagos, Nigeria</span></div></li><!-- PLACEHOLDER address -->
-              <li><i class="fa-regular fa-clock" aria-hidden="true"></i><div><strong>Opening hours</strong><span>Mon – Sat: 7:00am – 7:00pm<br>Sunday: 10:00am – 4:00pm</span></div></li>
-              <li><i class="fa-solid fa-phone" aria-hidden="true"></i><div><strong>Call or WhatsApp</strong><a href="tel:+2348000000000">+234 800 000 0000</a></div></li><!-- PLACEHOLDER phone -->
-              <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><div><strong>Email</strong><a href="mailto:hello@bakenfrost.com">hello@bakenfrost.com</a></div></li><!-- PLACEHOLDER email -->
+              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><div><strong>Visit the bakery</strong><span>5 Apple Street, Off Shagamu Road, Apeka Estate, Ikorodu, Lagos</span></div></li><!-- PLACEHOLDER address -->
+              <li><i class="fa-regular fa-clock" aria-hidden="true"></i><div><strong>Opening hours</strong><span>Mon – Fri: 8:00am – 6:00pm<br>Sat – Sun: 1:20pm – 6:00pm</span></div></li>
+              <li><i class="fa-solid fa-phone" aria-hidden="true"></i><div><strong>Call or WhatsApp</strong><a href="tel:+2348140147001">+234 814 014 7001</a></div></li><!-- PLACEHOLDER phone -->
+              <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><div><strong>Email</strong><a href="mailto:bakenfrostconfectioneries@gmail.com">bakenfrostconfectioneries@gmail.com</a></div></li><!-- PLACEHOLDER email -->
             </ul>
             <div class="btn-row" style="margin-top:1.8rem">
-              <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ikeja,Lagos,Nigeria" target="_blank" rel="noopener noreferrer">Get directions <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i></a>
+              <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=5%20Apple%20Street%2C%20Off%20Shagamu%20Road%2C%20Apeka%20Estate%2C%20Ikorodu%2C%20Lagos%2C%20Nigeria" target="_blank" rel="noopener noreferrer">Get directions <i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i></a>
               <a class="btn btn-ghost" href="#/contact/enquiry">Send an enquiry</a>
             </div>
           </div>
           <div class="map-wrap">
             <!-- PLACEHOLDER: replace the q= value (or paste the "Embed a map" URL from Google Maps) with your exact address -->
-            <iframe title="Map showing the location of Bake N Frost Confectionaries" src="https://www.google.com/maps?q=Ikeja,Lagos,Nigeria&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <iframe title="Map showing the location of Bake N Frost Confectionaries" src="https://www.google.com/maps?q=5+Apple+Street,+Off+Shagamu+Road,+Apeka+Estate,+Ikorodu,+Lagos,+Nigeria&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           </div>
         </div>
       </section>
@@ -818,13 +1361,10 @@
                 <div class="field"><label for="cf-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name"><p class="error" id="err-name"></p></div>
                 <div class="field"><label for="cf-email">Email <span class="req" aria-hidden="true">*</span></label><input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="err-email"><p class="error" id="err-email"></p></div>
               </div>
-              <div class="form-row">
-                <div class="field"><label for="cf-phone">Phone / WhatsApp <span class="req" aria-hidden="true">*</span></label><input id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+234 …" required aria-describedby="err-phone"><p class="error" id="err-phone"></p></div>
-                <div class="field"><label for="cf-topic">I'm enquiring about <span class="req" aria-hidden="true">*</span></label>
-                  <select id="cf-topic" name="topic" required aria-describedby="err-topic">
-                    <option value="">Choose one…</option><option>Custom cake order</option><option>Bread &amp; pastry order</option><option>Catering quote</option><option>Wholesale supply</option><option>Baking Academy</option><option>General question</option>
-                  </select><p class="error" id="err-topic"></p></div>
-              </div>
+              <div class="field"><label for="cf-topic">I'm enquiring about <span class="req" aria-hidden="true">*</span></label>
+                <select id="cf-topic" name="topic" required aria-describedby="err-topic">
+                  <option value="">Choose one…</option><option>Custom cake order</option><option>Bread &amp; pastry order</option><option>Catering quote</option><option>Wholesale supply</option><option>Baking Academy</option><option>General question</option>
+                </select><p class="error" id="err-topic"></p></div>
               <div class="field"><label for="cf-date">Date needed (optional)</label><input id="cf-date" name="date" type="date"></div>
               <div class="field"><label for="cf-message">Your message <span class="req" aria-hidden="true">*</span></label><textarea id="cf-message" name="message" required aria-describedby="err-message" placeholder="Tell us about your occasion, guest count, flavours or questions…"></textarea><p class="error" id="err-message"></p></div>
               <div class="field" style="margin-bottom:0"><label class="check" for="cf-consent"><input id="cf-consent" name="consent" type="checkbox" required aria-describedby="err-consent"><span>I agree to be contacted about my enquiry. <span class="req" aria-hidden="true">*</span></span></label><p class="error" id="err-consent" style="margin:-.8rem 0 1rem"></p></div>
@@ -861,13 +1401,11 @@
           <span class="brand-text"><strong>Bake <span class="gold-n">N</span> Frost</strong><small>Confectionaries</small></span>
         </a>
         <p style="margin-top:1.2rem;max-width:30ch">Custom cakes, artisan bread, pastries, catering, wholesale supply and baking training. Freshly made for you.</p>
-        <div class="socials" aria-label="Social media">
-          <!-- PLACEHOLDER: replace each URL with your real profile links -->
+        <div class="socials" role="group" aria-label="Social media">
           <a href="https://instagram.com/bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-          <a href="https://facebook.com/bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-          <a href="https://tiktok.com/@bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
-          <a href="https://x.com/bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
-          <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/bakenfrostconf" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.tiktok.com/@bakenfrost2" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a href="https://wa.me/2348140147001" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
           <a href="https://youtube.com/@bakenfrost" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
         </div>
       </div>
@@ -882,10 +1420,10 @@
       <div>
         <h4>Visit &amp; contact</h4>
         <ul class="footer-contact">
-          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>12 Sample Street, Ikeja, Lagos</span></li>
-          <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+2348000000000">+234 800 000 0000</a></li>
-          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:hello@bakenfrost.com">hello@bakenfrost.com</a></li>
-          <li><i class="fa-regular fa-clock" aria-hidden="true"></i><span>Mon–Sat 7am–7pm · Sun 10am–4pm</span></li>
+          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>5 Apple Street, Apeka Estate, Ikorodu, Lagos</span></li>
+          <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:+2348140147001">+234 814 014 7001</a></li>
+          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:bakenfrostconfectioneries@gmail.com">bakenfrostconfectioneries@gmail.com</a></li>
+          <li><i class="fa-regular fa-clock" aria-hidden="true"></i><span>Mon–Fri 8am–6pm · Sat–Sun 1:20pm–6pm</span></li>
         </ul>
       </div>
     </div>
@@ -902,13 +1440,93 @@
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
     <button class="round-btn lb-btn lb-close" id="lbClose" type="button" aria-label="Close image viewer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
     <button class="round-btn lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-    <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+    <figure><img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""><figcaption id="lbCap"></figcaption></figure>
     <button class="round-btn lb-btn lb-next" id="lbNext" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
   </div>
 
 
-  <!-- Floating WhatsApp — PLACEHOLDER: replace 2348000000000 with your number -->
-  <a class="wa-fab" id="waFab" href="https://wa.me/2348000000000?text=Hello%20Bake%20N%20Frost%2C%20I%27d%20like%20to%20enquire%20about%20catering." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       CART — slide-in drawer. Orders are sent through WhatsApp only (number set in script.js)
+       ========================================================================== -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true" inert>
+    <header class="cart-head">
+      <h2 id="cartTitle">Your Cart <span class="cart-head-count" id="cartHeadCount"></span></h2>
+      <button class="cart-close" id="cartClose" type="button" aria-label="Close cart"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </header>
+
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <span class="cart-empty-ico" aria-hidden="true"><i class="fa-solid fa-cake-candles"></i></span>
+        <h3>Your cart is empty</h3>
+        <p>Add a cake, loaf or pastry from the menu and send your order straight to us on WhatsApp.</p>
+        <a href="#/menu" class="btn btn-primary" data-close-cart>Browse the menu</a>
+      </div>
+
+      <ul class="cart-list" id="cartList" aria-label="Items in your cart"></ul>
+
+      <form class="cart-details" id="cartDetails" autocomplete="off" novalidate>
+        <p class="cart-details-title">Order details <span>(optional)</span></p>
+        <div class="cd-field">
+          <label for="cd-name">Your name</label>
+          <input id="cd-name" name="name" type="text" maxlength="60" placeholder="e.g. Ada Okafor" autocomplete="name">
+        </div>
+        <div class="cd-field">
+          <label for="cd-note">Note <span>(flavour, message on cake, allergies…)</span></label>
+          <textarea id="cd-note" name="note" rows="2" maxlength="300" placeholder="Anything we should know?"></textarea>
+        </div>
+        <p class="cart-fulfil-note">Pickup or delivery will be arranged with you when we confirm your order on WhatsApp.</p>
+      </form>
+    </div>
+
+    <footer class="cart-foot" id="cartFoot">
+      <p class="cart-fine" id="cartFine">Availability, pricing, and pickup or delivery are confirmed on WhatsApp. Product photos are attached automatically when your device supports it; otherwise photo links are included in the message.</p>
+      <a class="btn cart-wa" id="cartCheckout" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order via WhatsApp
+      </a>
+      <p class="cart-status" id="cartStatus" role="status" aria-live="polite" hidden></p>
+      <button class="cart-clear" id="cartClear" type="button">Clear Cart</button>
+    </footer>
+  </aside>
+
+
+  <!-- ==========================================================================
+       PRODUCT MODAL — opens from a card's photo, name or "Details" button
+       ========================================================================== -->
+  <div class="pm" id="productModal" role="dialog" aria-modal="true" aria-labelledby="pmName" aria-hidden="true" inert>
+    <div class="pm-backdrop" data-pm-close></div>
+    <div class="pm-panel">
+      <button class="pm-close" id="pmClose" type="button" aria-label="Close details"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <div class="pm-media"><img id="pmImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="640" height="480"></div>
+      <div class="pm-info">
+        <span class="pm-tag" id="pmTag"></span>
+        <h2 id="pmName"></h2>
+        <p class="pm-desc" id="pmDesc"></p>
+        <div class="pm-row">
+          <span class="pm-label" id="pmQtyLabel">Quantity</span>
+          <div class="cl-qty pm-qty" role="group" aria-labelledby="pmQtyLabel">
+            <button type="button" id="pmDec" aria-label="Decrease quantity"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+            <output id="pmQty" aria-live="polite">1</output>
+            <button type="button" id="pmInc" aria-label="Increase quantity"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <label class="pm-label" for="pmNote">Special instructions <span>(optional)</span></label>
+        <textarea id="pmNote" rows="3" maxlength="300" placeholder="Flavour, size, message on cake, allergies…"></textarea>
+        <button class="btn btn-primary pm-add" id="pmAdd" type="button"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add to cart</button>
+        <p class="pm-fine">Nothing is paid on the website. We confirm everything with you on WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast (cart feedback) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button type="button" id="toastAction">View cart</button></div>
+
+  <!-- Floating WhatsApp -->
+  <a class="wa-fab" id="waFab" href="https://wa.me/2348140147001?text=Good%20day%20Bake%20N%20Frost%21%0A%0AI%27d%20like%20to%20make%20an%20enquiry.%0A%0AThank%20you%21" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
     <span class="wa-fab-rings" aria-hidden="true">
       <span class="wa-ring r1"></span>
       <span class="wa-ring r2"></span>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bake-n-frost-confectionaries.onrender.com/sitemap.xml
