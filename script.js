@@ -741,6 +741,15 @@
            (photo, description, quantity, special instructions, Add to cart).
      ========================================================================== */
   const WHATSAPP_NUMBER = '2348140147001';          // 0814 014 7001
+
+  /* PHOTO OF THE ORDER (optional but recommended)
+     When the customer taps "Order via WhatsApp", the site makes ONE picture of the products they
+     chose (photo + name of each), stores it with a free Cloudinary account and puts its link in
+     the WhatsApp message. WhatsApp then shows that picture right inside the chat with the bakery.
+     Fill in the two values below (steps are in the notes that came with this file). While they
+     are empty, the message simply carries a link to each product photo instead. */
+  const CLOUDINARY_CLOUD_NAME    = 'aysfh43s';              // e.g. 'dab12cd3e'   (your "Cloud name")
+  const CLOUDINARY_UPLOAD_PRESET = 'bnf_orders';              // e.g. 'bnf_orders'  (an UNSIGNED upload preset)
   (function cart() {
     const STORE = 'bnf-cart-v2';
     const MAX_QTY = 99;
@@ -822,19 +831,21 @@
       if (f.name && document.activeElement !== f.name) f.name.value = info.name;
       if (f.note && document.activeElement !== f.note) f.note.value = info.note;
       updateLink();
-      warmPhotos();
+      scheduleCollage();
     }
 
     /* ----- WhatsApp message + link ----- */
-    /* linkFor(item) decides whether an item gets a "Photo: https://…" line.
-       No argument = every item (the plain link message). */
-    function buildMessage(linkFor) {
+    /* The message. With a ready order picture: items + ONE link (the picture), which WhatsApp
+       displays in the chat. Otherwise: a "Photo:" link under each product. */
+    function buildMessage() {
+      const pic = readyCollageUrl();
       const linesItems = [];
       items.forEach((it, n) => {
         linesItems.push((n + 1) + '. ' + it.name + ' × ' + it.qty);
         if (it.note) linesItems.push('    Note: ' + it.note);
-        if (it.full && (!linkFor || linkFor(it))) linesItems.push('    Photo: ' + it.full);
+        if (!pic && it.full) linesItems.push('    Photo: ' + it.full);
       });
+      if (pic) linesItems.push('', 'Photos of my order: ' + pic);
       return WA.cartOrder(linesItems, { name: (info.name || '').trim(), note: (info.note || '').trim() });
     }
     function updateLink() {
@@ -844,133 +855,162 @@
     }
 
     /* ==========================================================================
-       ORDER BUTTON — one button, photos always included
-       A web page cannot attach files to a wa.me link, so the button picks the best route itself:
-         • Phones / tablets (share sheet supports files): the real product photos are attached
-           to the order message. The customer picks WhatsApp → Bake N Frost → send.
-           Photos are downloaded in the background as soon as an item is added, so the sheet
-           opens instantly on tap (phones require the share to start right after the tap).
-         • Desktop, or any browser that can't share files: the normal WhatsApp link opens
-           with a "Photo:" link under every product.
-         • If anything goes wrong (a photo can't load, the share fails) the order still goes
-           out as the link message, so an order is never lost.
+       ORDER BUTTON — one tap opens the bakery's own WhatsApp chat, order already written
+       A web page cannot drop a file into a chat (the phone's share sheet would make the customer
+       hunt for the bakery among their contacts), so the picture travels as a link that WhatsApp
+       displays as a picture inside the chat:
+         1. While the customer looks at the cart, the site quietly draws ONE picture of the chosen
+            products (photo + name of each) and uploads it to Cloudinary (a few seconds, once).
+         2. The "Order via WhatsApp" link already contains that picture's address, so a tap is a
+            plain, instant link to the bakery's chat: no share sheet, nothing to choose.
+         3. If the picture isn't ready yet, the tap waits a moment. If it can't be made at all
+            (no signal, Cloudinary not set up), the message carries a link to each product photo,
+            so an order is never lost.
        ========================================================================== */
-    const ATTACH_PHOTOS = true;          // set to false to always send the link-only message
-    const MAX_PHOTOS = 10;               // at most this many photos per order (the rest go as links)
-    const PHOTO_WAIT_MS = 8000;          // how long a tap waits for photos that are still downloading
-    const useShare = (() => {
-      try {
-        return ATTACH_PHOTOS && !!navigator.share && !!navigator.canShare &&
-          navigator.canShare({ files: [new File(['x'], 'a.jpg', { type: 'image/jpeg' })] }) &&
-          window.matchMedia('(pointer: coarse)').matches;          // touch devices only; desktops use WhatsApp Web
-      } catch (e) { return false; }
-    })();
+    const COLLAGE_ON = !!(CLOUDINARY_CLOUD_NAME && CLOUDINARY_UPLOAD_PRESET);
+    const COLLAGE_WAIT_MS = 7000;            // longest a tap waits for the picture before sending without it
+    const COLLAGE_MAX_TILES = 9;             // photos shown in the picture (more products show "+N more")
+    const COLLAGE_CACHE = 'bnf-collage-v1';  // remembers pictures already uploaded, so repeat orders are instant
     const checkoutHTML = checkout.innerHTML;
-    const statusEl = $('#cartStatus'), fineEl = $('#cartFine');
-    if (useShare && fineEl) {
-      fineEl.textContent = 'Availability, pricing, and pickup or delivery are confirmed with you on WhatsApp. ' +
-        'Tap the button, choose WhatsApp, then Bake N Frost (+234 814 014 7001) and send: your product photos go with the order.';
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    const hashOf = str => { let h = 5381; for (let i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0; return (h >>> 0).toString(36); };
+    const photoKey = it => it.src || it.full || it.img || '';
+
+    /* one entry per distinct photo in the cart, in cart order */
+    function photoGroups() {
+      const seen = new Map();
+      items.forEach(it => { const k = photoKey(it); if (k && !seen.has(k)) seen.set(k, { src: k, name: it.name }); });
+      return Array.from(seen.values());
+    }
+    const groupsKey = groups => groups.map(g => g.src + '|' + g.name).join('\n');
+
+    let collage = { key: '', state: 'idle', url: '', promise: null, t: 0 };   // idle | building | ready | failed
+    function readyCollageUrl() {
+      return COLLAGE_ON && collage.state === 'ready' && collage.key === groupsKey(photoGroups()) ? collage.url : '';
+    }
+    function cacheGet(key) {
+      try { const m = JSON.parse(localStorage.getItem(COLLAGE_CACHE) || '{}'); return (m[hashOf(key)] || {}).url || ''; } catch (e) { return ''; }
+    }
+    function cacheSet(key, url) {
+      try {
+        const m = JSON.parse(localStorage.getItem(COLLAGE_CACHE) || '{}');
+        m[hashOf(key)] = { url, t: Date.now() };
+        const keep = Object.entries(m).sort((x, y) => y[1].t - x[1].t).slice(0, 20);     // newest 20 only
+        localStorage.setItem(COLLAGE_CACHE, JSON.stringify(Object.fromEntries(keep)));
+      } catch (e) { /* storage blocked: fine */ }
     }
 
-    let statusTimer = null;
-    function setStatus(msg) {                                       // visible inside the drawer, unlike the toast
-      if (!statusEl) return;
-      clearTimeout(statusTimer);
-      statusEl.textContent = msg || ''; statusEl.hidden = !msg;
-      if (msg) statusTimer = setTimeout(() => { statusEl.hidden = true; }, 7000);
+    async function loadBitmap(url) {                  // a photo that can't be read just becomes a name tile
+      try {
+        const r = await fetch(url, { mode: 'cors', credentials: 'omit' });
+        if (!r.ok) return null;
+        return await createImageBitmap(await r.blob());
+      } catch (e) { return null; }
     }
+    function roundRect(g, x, y, w, h, r) {
+      g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r);
+      g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath();
+    }
+    function fitText(g, text, maxW) {
+      if (g.measureText(text).width <= maxW) return text;
+      while (text.length > 1 && g.measureText(text + '…').width > maxW) text = text.slice(0, -1);
+      return text + '…';
+    }
+    /* The order picture: plum header + a grid of the chosen products, each with its name */
+    async function drawCollage(groups) {
+      const shown = groups.slice(0, COLLAGE_MAX_TILES), extra = groups.length - shown.length;
+      const bmps = await Promise.all(shown.map(g => loadBitmap(g.src)));
+      if (!bmps.some(Boolean)) throw new Error('no photo could be read');
+      const W = 1200, GAP = 12, HEAD = 100;
+      const cols = shown.length === 1 ? 1 : shown.length <= 4 ? 2 : 3;
+      const rows = Math.ceil(shown.length / cols);
+      const tw = (W - GAP * (cols + 1)) / cols, th = Math.round(tw * (cols === 1 ? 0.72 : 0.8));
+      const H = HEAD + rows * (th + GAP) + GAP + (extra > 0 ? 72 : 0);
+      const c = document.createElement('canvas'); c.width = W; c.height = H;
+      const g = c.getContext('2d');
+      g.fillStyle = '#1E0F26'; g.fillRect(0, 0, W, H);
+      g.textBaseline = 'middle';
+      g.fillStyle = '#F59E0B'; g.font = '600 44px Georgia, "Times New Roman", serif'; g.textAlign = 'left';
+      g.fillText('Bake N Frost', 30, HEAD / 2);
+      g.fillStyle = '#F6EEE0'; g.font = '500 28px system-ui, Arial, sans-serif'; g.textAlign = 'right';
+      g.fillText('My order · ' + groups.length + (groups.length === 1 ? ' product' : ' products'), W - 30, HEAD / 2);
+      shown.forEach((grp, i) => {
+        const x = GAP + (i % cols) * (tw + GAP), y = HEAD + Math.floor(i / cols) * (th + GAP);
+        g.save(); roundRect(g, x, y, tw, th, 20); g.clip();
+        const bm = bmps[i];
+        if (bm) {
+          const k = Math.max(tw / bm.width, th / bm.height), dw = bm.width * k, dh = bm.height * k;
+          g.drawImage(bm, x + (tw - dw) / 2, y + (th - dh) / 2, dw, dh);
+        } else {
+          g.fillStyle = '#3B2150'; g.fillRect(x, y, tw, th);
+        }
+        const bar = Math.max(70, Math.round(th * 0.2));
+        g.fillStyle = bm ? 'rgba(30,15,38,.84)' : 'rgba(0,0,0,0)'; g.fillRect(x, y + th - bar, tw, bar);
+        g.fillStyle = '#FFFFFF'; g.font = '600 ' + (cols === 1 ? 38 : 30) + 'px system-ui, Arial, sans-serif'; g.textAlign = bm ? 'left' : 'center';
+        g.fillText(fitText(g, grp.name, tw - 40), bm ? x + 22 : x + tw / 2, bm ? y + th - bar / 2 : y + th / 2);
+        g.restore();
+      });
+      if (extra > 0) {
+        g.fillStyle = '#F59E0B'; g.font = '600 32px system-ui, Arial, sans-serif'; g.textAlign = 'center';
+        g.fillText('+ ' + extra + ' more ' + (extra === 1 ? 'product' : 'products') + ' in the message', W / 2, H - 38);
+      }
+      const blob = await new Promise(res => c.toBlob(res, 'image/jpeg', 0.82));
+      if (!blob || !blob.size) throw new Error('could not draw the picture');
+      return blob;
+    }
+    async function uploadCollage(blob) {
+      const fd = new FormData();
+      fd.append('file', blob, 'order.jpg'); fd.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+      const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 15000);
+      try {
+        const r = await fetch('https://api.cloudinary.com/v1_1/' + encodeURIComponent(CLOUDINARY_CLOUD_NAME) + '/image/upload', { method: 'POST', body: fd, signal: ctl.signal });
+        const j = await r.json();
+        if (!r.ok || !j.secure_url || !/^https:\/\//.test(j.secure_url)) throw new Error((j.error && j.error.message) || 'upload failed');
+        return j.secure_url;
+      } finally { clearTimeout(timer); }
+    }
+
+    /* Make (or reuse) the picture for what is in the cart right now. Returns a promise, or null if nothing to do. */
+    function ensureCollage() {
+      if (!COLLAGE_ON) return null;
+      const groups = photoGroups();
+      if (!groups.length) return null;
+      const key = groupsKey(groups);
+      if (collage.key === key && (collage.state === 'building' || collage.state === 'ready' ||
+          (collage.state === 'failed' && Date.now() - collage.t < 20000))) return collage.promise;   // don't hammer a failing network
+      const mine = collage = { key, state: 'building', url: '', promise: null, t: Date.now() };
+      const cached = cacheGet(key);
+      if (cached) { mine.state = 'ready'; mine.url = cached; mine.promise = Promise.resolve(); updateLink(); return mine.promise; }
+      mine.promise = drawCollage(groups).then(uploadCollage).then(url => {
+        mine.state = 'ready'; mine.url = url; cacheSet(key, url);
+      }).catch(() => { mine.state = 'failed'; mine.t = Date.now(); }).then(() => { if (collage === mine) updateLink(); });
+      return mine.promise;
+    }
+    let collageTimer = null;
+    function scheduleCollage() {                       // after cart changes, once the cart is open and settled
+      if (!COLLAGE_ON || !drawer.classList.contains('open')) return;
+      clearTimeout(collageTimer); collageTimer = setTimeout(ensureCollage, 500);
+    }
+
     function setBusy(on) {
       checkout.classList.toggle('is-busy', on);
       checkout.setAttribute('aria-busy', String(on));
-      checkout.innerHTML = on ? '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Preparing photos…' : checkoutHTML;
+      checkout.innerHTML = on ? '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Preparing your order…' : checkoutHTML;
     }
-
-    /* photo cache: address → { state: 'loading' | 'ready' | 'failed', blob, promise } */
-    const photos = new Map();
-    const photoKey = it => it.src || it.full || it.img || '';
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
-    /* Any image format → a JPEG of at most 1280px (small, and WhatsApp accepts it everywhere) */
-    async function toJpeg(blob) {
-      try {
-        const bmp = await createImageBitmap(blob);
-        const k = Math.min(1, 1280 / Math.max(bmp.width, bmp.height));
-        const c = document.createElement('canvas');
-        c.width = Math.max(1, Math.round(bmp.width * k)); c.height = Math.max(1, Math.round(bmp.height * k));
-        const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(bmp, 0, 0, c.width, c.height);
-        if (bmp.close) bmp.close();
-        const out = await new Promise(res => c.toBlob(res, 'image/jpeg', 0.86));
-        if (out && out.size) return out;
-      } catch (e) { /* fall through */ }
-      return /^image\/(jpeg|png|webp)$/.test(blob.type) ? blob : null;
-    }
-    function preparePhoto(url) {
-      let p = photos.get(url);
-      if (p) return p;
-      p = { state: 'loading', blob: null, promise: null };
-      photos.set(url, p);
-      p.promise = (async () => {
-        try {
-          const r = await fetch(url, { mode: 'cors', credentials: 'omit' });
-          if (!r.ok) throw new Error('http ' + r.status);
-          const raw = await r.blob();
-          if (!raw || !raw.size) throw new Error('empty');
-          p.blob = await toJpeg(raw);
-          p.state = p.blob ? 'ready' : 'failed';
-        } catch (e) { p.state = 'failed'; }          // blocked, missing or not an image: this one goes as a link
-      })();
-      return p;
-    }
-    /* one entry per distinct photo in the cart (same product with two notes = one photo) */
-    function photoList() {
-      const seen = new Set(), out = [];
-      items.forEach(it => { const u = photoKey(it); if (u && !seen.has(u)) { seen.add(u); out.push({ url: u, name: it.name }); } });
-      return out;
-    }
-    function warmPhotos() { if (useShare) photoList().forEach(w => preparePhoto(w.url)); }
-
-    function openLink(msg) {                                         // the always-works route
-      updateLink();
-      setStatus(msg || 'Opening WhatsApp… your cart is saved until you clear it.');
-      const w = window.open(checkout.href, '_blank');
-      if (w) { try { w.opener = null; } catch (e) {} } else { location.href = checkout.href; }
-    }
-
-    let sending = false;
-    async function sendWithPhotos() {
-      const want = photoList();
-      want.forEach(w => preparePhoto(w.url));
-      let waited = false;
-      if (want.some(w => photos.get(w.url).state === 'loading')) {   // photos still downloading: wait a moment
-        sending = true; waited = true; setBusy(true);
-        await Promise.race([Promise.all(want.map(w => photos.get(w.url).promise)), sleep(PHOTO_WAIT_MS)]);
-        setBusy(false); sending = false;
-      }
-      const ok = want.filter(w => photos.get(w.url).state === 'ready').slice(0, MAX_PHOTOS);
-      if (!ok.length) return openLink('Opening WhatsApp… the photos are included as links.');
-      const files = ok.map((w, i) => {
-        const b = photos.get(w.url).blob, ext = (b.type.split('/')[1] || 'jpg').replace('jpeg', 'jpg');
-        return new File([b], (i + 1) + '-' + (slug(w.name) || 'photo') + '.' + ext, { type: b.type });
-      });
-      if (!navigator.canShare({ files })) return openLink('Opening WhatsApp… the photos are included as links.');
-      const sent = new Set(ok.map(w => w.url));
-      const text = buildMessage(it => !sent.has(photoKey(it)));      // photos that couldn't attach still get a link
-      try {
-        await navigator.share({ files, text, title: 'Bake N Frost order' });
-        setStatus('Almost there: pick Bake N Frost in WhatsApp and tap send. Your cart is saved.');
-      } catch (err) {
-        if (err && err.name === 'AbortError') return;                // customer closed the sheet: nothing to do
-        if (err && err.name === 'NotAllowedError' && waited) {       // the wait outlasted the tap; photos are ready now
-          setStatus('Your photos are ready. Tap “Order via WhatsApp” once more to send.');
-          return;
-        }
-        openLink('Opening WhatsApp… the photos are included as links.');
-      }
-    }
+    let waiting = false;
     checkout.addEventListener('click', e => {
       if (!items.length) { e.preventDefault(); return; }
-      if (!useShare) { updateLink(); setStatus('Opening WhatsApp… your cart is saved until you clear it.'); return; }   // normal link opens
-      e.preventDefault();
-      if (!sending) sendWithPhotos();
+      if (!COLLAGE_ON) return;                                    // plain link: the browser opens WhatsApp as normal
+      const p = ensureCollage();
+      if (!p || collage.state !== 'building') { updateLink(); return; }   // picture ready (or given up): the link is final, let it open
+      e.preventDefault();                                         // picture still being made: wait a moment, then go
+      if (waiting) return;
+      waiting = true; setBusy(true);
+      Promise.race([p, sleep(COLLAGE_WAIT_MS)]).then(() => {
+        waiting = false; setBusy(false); updateLink();
+        const w = window.open(checkout.href, '_blank');
+        if (w) { try { w.opener = null; } catch (err) {} } else { location.href = checkout.href; }
+      });
     });
 
     /* ----- mutations ----- */
@@ -1120,6 +1160,7 @@
       btn.setAttribute('aria-expanded', 'true');
       document.body.classList.add('no-scroll');
       setTimeout(() => closeBtn.focus(), 60);
+      ensureCollage();                                    // start the order picture while the customer reviews the cart
     }
     function close() {
       if (!drawer.classList.contains('open')) return;
