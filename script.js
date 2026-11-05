@@ -137,7 +137,7 @@
   let currentRoute = null;
 
   /* Shortcuts used in links like #/menu/cakes */
-  const SECTION_ALIAS = { cakes: 'menuGrid', bread: 'menuGrid', custom: 'custom', enquiry: 'enquiry' };
+  const SECTION_ALIAS = { cakes: 'menuGrid', bread: 'menuGrid', custom: 'custom', enquiry: 'enquiry', timeline: 'about-timeline', grew: 'about-timeline' };
 
   function parseHash() {
     const parts = (location.hash.replace(/^#\/?/, '') || 'home').split('/');
